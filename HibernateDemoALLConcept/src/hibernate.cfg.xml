@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	
+		<!-- Database Connection Information -->
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+		<property name="connection.username">system</property>
+		<property name="connection.password">oracle</property>
+		
+		 <!-- Echo all executed SQL to stdout  -->
+		<property name="show_sql">true</property>
+		
+		<!--   SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+		
+		<!--   Disable the second-level cache.  -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		
+		<property name="connection.pool_size">2</property>
+		
+		<!--   Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">create</property>
+		
+		
+		<mapping class="com.akshay.hibernate.Student"/>
+		<mapping class="com.akshay.hibernate.StudentDetail"/>
+		<mapping class="com.akshay.ManyToOneRelationShip.Employee"/>
+		<mapping class="com.akshay.ManyToOneRelationShip.EmployeeAddress"/>
+		<mapping class="com.akshay.ManyToManyRelationShip.Student"/>
+		<mapping class="com.akshay.ManyToManyRelationShip.Certification"/>
+		<mapping class="com.akshay.BasicOperation.Employee"/>		
+
+		<!-- Mapping for Embedded Related Class  -->		
+		<mapping class="com.akshay.EmbeddedOrAssociation.Employee"/>
+		
+		<!-- Mapping for Inhertience "SINGLE_TABLE_OR_TablePerHirearchy" Related Class --> 		
+		<mapping class="com.akshay.Inheritence.SINGLE_TABLE_OR_TablePerHirearchy.Department"/>
+		<mapping class="com.akshay.Inheritence.SINGLE_TABLE_OR_TablePerHirearchy.SubEmployee"/>
+		<mapping class="com.akshay.Inheritence.SINGLE_TABLE_OR_TablePerHirearchy.Employee"/>
+		
+		
+		<!-- Mapping for Inhertience "TablePerCLASS" Related Class --> 		
+		<mapping class="com.akshay.Inheritence.Table_Per_Class.Employee"/>
+		<mapping class="com.akshay.Inheritence.Table_Per_Class.SubEmployee"/>
+		<mapping class="com.akshay.Inheritence.Table_Per_Class.Department"/> 
+		
+		
+				<!-- Mapping for Inhertience "JOINED" Related Class  -->		
+		<mapping class="com.akshay.Inheritence.JOINED.Employee"/>
+		<mapping class="com.akshay.Inheritence.JOINED.SubEmployee"/>
+		<mapping class="com.akshay.Inheritence.JOINED.Department"/>
+	</session-factory>
+</hibernate-configuration>
