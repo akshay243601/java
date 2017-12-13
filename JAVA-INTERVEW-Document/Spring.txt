@@ -1,0 +1,11 @@
+Spring MVC 
+
+
+
+Dependency Injection
+Inversion of Control
+Request Handler
+View Resolver
+View 
+Controller
+Model
