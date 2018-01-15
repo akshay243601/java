@@ -1,0 +1,21 @@
+/* http://www.menucool.com */
+
+#sliderFrame 
+{
+    position:relative;
+    width:1400px;
+    margin:0 auto; /*center-aligned*/
+}
+
+#slider, #slider div.sliderInner {
+    width:1400px;height:200px;/* Must be the same size as the slider images */
+}
+
+#slider {
+	background:#fff url(loading.gif) no-repeat 100% 50%;
+	position:relative;
+	margin:0 auto; 
+    transform: translate3d(0,0,0);
+    box-shadow: 0px 1px 5px #999999;
+}
+

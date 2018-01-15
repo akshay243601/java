@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>BBMSClient</display-name>
+  
+  	<servlet>
+        <servlet-name>FileUploadHandler</servlet-name>
+        <servlet-class>Controller.FileUploadHandler</servlet-class>
+   	</servlet>
+   	<servlet-mapping>
+        <servlet-name>FileUploadHandler</servlet-name>
+        <url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+  <servlet>
+        <servlet-name>EmployeeFileUploadHandler</servlet-name>
+        <servlet-class>Controller.EmployeeFileUploadHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeFileUploadHandler</servlet-name>
+        <url-pattern>/employeeImageUpload</url-pattern>
+    </servlet-mapping>
+    <filter>
+		<filter-name>CustomFilter</filter-name>
+		<filter-class>Filters.ValidURLAccessCheckFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>CustomFilter</filter-name>
+		<url-pattern>/EditStudentDetails.jsp</url-pattern>
+		<url-pattern>/StudentClass.jsp</url-pattern>
+		<url-pattern>/StudentProfile.jsp</url-pattern>
+		<url-pattern>/StudentRegister.jsp</url-pattern>
+		<url-pattern>/studentRegisterAction.jsp</url-pattern>
+		<url-pattern>/updateEmployeeDetails.jsp</url-pattern>
+		<url-pattern>/updateEmployeeDetailsAction.jsp</url-pattern>
+		<url-pattern>/updateStudentDetailAction.jsp</url-pattern>
+		<url-pattern>/userProfile.jsp</url-pattern>
+	</filter-mapping>
+    
+	<context-param>
+        <param-name>StudentImagePath</param-name>
+        <param-value>Resource/StudentImages/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>EmployeeImagePath</param-name>
+        <param-value>Resource/EmployeeImages/</param-value>
+    </context-param>
+  <welcome-file-list>
+    <welcome-file>aboutUs.jsp</welcome-file>    
+  </welcome-file-list>
+  <error-page>
+  		<exception-type>java.lang.Exception</exception-type>  
+    	<location>/applicationError.jsp</location>
+  </error-page>
+</web-app>

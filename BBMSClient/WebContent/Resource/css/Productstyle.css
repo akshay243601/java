@@ -1,0 +1,38 @@
+element.style {
+}
+.SECTION-TITLE {
+font-weight: bold;
+font-size: 1.15em;
+}
+.PRODUCT-PART-NUMBER-TITLE {
+font-weight: bold;
+color: #999;
+margin-bottom: 5px;
+}
+.PRODUCT-PART-NUMBER {
+color: #999;
+margin-bottom: 5px;
+}
+.PRODUCT-PART-NUMBER {
+font-size: 90%;
+}
+.PRODUCT-PRICE-TITLE {
+font-weight: bold;
+}
+.ADD-TO-BASKET-CELL {
+display: block;
+padding: 15px;
+border: 1px solid #999;
+background-image: url(images/i100_black_5.png);
+background-repeat: repeat;
+}
+.ADD-TO-BASKET-CELL {
+color: #123838;
+background-color: rgb(181,194,170);
+background-color: rgba(181,194,170,0.4);
+border: 1px solid rgb(64,68,60);
+border-color: rgba(64,68,60,0.5);
+border-radius: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+}

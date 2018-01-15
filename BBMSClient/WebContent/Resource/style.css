@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+th, td {
+  vertical-align: top;
+}
+
+
+
+td {
+  padding: 8px;
+}
+
+
+tfoot tr.total td.price {
+  border-left: 1px solid #d5d8db;
+}
+.in {
+  color: #00b515;
+}
+.out {
+  color: #b50000;
+}
+span {
+  color: #8c8c8c;
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+}
+#clear
+{
+clear:both;
+}
+
+
+section  h1 {
+    font-size: 42px;
+    color: #fff;
+    border-bottom: 0;
+    margin: 0 0 10px;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #eee;
+    background-color: #f2dede;
+}
+
+section
+{
+	color: #eee;
+}
+
