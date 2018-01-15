@@ -1,4 +1,4 @@
-package com.akshay.JSON;
+/*package com.akshay.JSON;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ public class JSONMain
 	{
 		FileInputStream fis = new FileInputStream(new File(FILE_PATH));
 		JsonReader jsonReader = Json.createReader(fis);
-		JsonObject jsonObject = jsonReader.readObject();
+		jsonObject jsonObject = jsonReader.readObject();
 		Employee emp = new Employee();	
 		emp.setId(jsonObject.getInt("id"));
 		emp.setName(jsonObject.getString("Name"));
@@ -89,3 +89,4 @@ public class JSONMain
 	}
 
 }
+*/

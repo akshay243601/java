@@ -273,9 +273,16 @@ public class BasicsMain extends ParentClass {
 		
 	}
 	
+	public static void method(Object o) {
+		System.out.println("Object impl..");
+	}
+	
+	public static void method(String s) {
+		System.out.println("String impl..");
+	}
 	
 	public static void main(String args[]) {
-
+		method(null);
 		String s1 = "Sachin";
 		String s2 = "Sachin";
 		String s3 = new String("Sachin");
