@@ -1,9 +1,7 @@
 package com.akshay.MultithreadingCriticalSection;
 
 public class MutualExclusionClass extends Thread
-{
-	
-	
+{	
 	CustomSemaphore customSemaphore;
 	public MutualExclusionClass(CustomSemaphore customSemaphore, String Threadname)
 	{

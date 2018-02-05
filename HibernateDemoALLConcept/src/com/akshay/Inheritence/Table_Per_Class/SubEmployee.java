@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="SubEmployeePERCLASS")
 @Table(name="SubEmployeePERCLASS")
 public class SubEmployee extends Employee
 {

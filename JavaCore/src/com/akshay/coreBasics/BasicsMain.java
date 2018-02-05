@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,9 @@ import java.util.Map.Entry;
 import javax.management.StringValueExp;
 
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 class ParentClass {
 	public static int x = 10;
@@ -266,22 +270,64 @@ public class BasicsMain extends ParentClass {
 		}
 	}
 
-	
-	public static void StringVal(String val)
-	{
+	public static void StringVal(String val) {
 		val = val + "Change";
-		
+
 	}
-	
+
 	public static void method(Object o) {
 		System.out.println("Object impl..");
 	}
-	
+
 	public static void method(String s) {
 		System.out.println("String impl..");
 	}
-	
+
 	public static void main(String args[]) {
+		String values = "a,v,b,a,v,a";
+		Set<String> splitValues = new HashSet<String>(Arrays.asList(values.split(",")));
+		for (String value : splitValues) {
+			if (value.trim().length() > 0) {
+				System.out.println(value.trim());
+			}
+		}
+		
+		
+		values = "a,,b,,,,,  ,   ,,   ";
+		splitValues = new HashSet<String>(Arrays.asList(values.split(",")));
+		for (String value : splitValues) {
+			if (value.trim().length() > 0) {
+				System.out.println(value.trim());
+			}
+		}
+		System.out.println(splitValues);
+
+		TreeMap<String, Map<String, String>> oldMap = new TreeMap<String, Map<String, String>>();
+		oldMap.put("oldMap", new TreeMap<String, String>());
+		oldMap.get("oldMap").put("A", "A");
+		oldMap.get("oldMap").put("B", "B");
+		oldMap.get("oldMap").put("C", "C");
+
+		TreeMap<String, Map<String, String>> newMap = new TreeMap<String, Map<String, String>>();
+		newMap.put("newMap", new TreeMap<String, String>());
+		newMap.get("newMap").put("A", "A");
+		newMap.get("newMap").put("B", "B");
+		newMap.get("newMap").put("D", "D");
+
+		Set<String> oldValues = new TreeSet<>();
+		oldValues.addAll(oldMap.get("oldMap").keySet());
+
+		Set<String> newValues = new TreeSet<>();
+		newValues.addAll(newMap.get("newMap").keySet());
+
+		System.out.println(oldValues);
+
+		System.out.println(newValues);
+
+		newValues.addAll(oldValues);
+
+		System.out.println(newValues);
+
 		method(null);
 		String s1 = "Sachin";
 		String s2 = "Sachin";
@@ -291,24 +337,15 @@ public class BasicsMain extends ParentClass {
 		System.out.println(s1.equals(s3));// true
 		System.out.println(s1.equals(s4));// false
 
-	
 		StringVal(s1);
 		System.out.println(s1);
 		StringVal(s3);
-		System.out.println(s3);		
-		
-		
-		
-		
+		System.out.println(s3);
+
 		System.out.println(s1 == s2);
 		System.out.println(s1 == s3);
 		System.out.println(s1 == s4);
 
-		
-		
-		
-		
-		
 		final BasicsMain obj = new BasicsMain();
 		obj.setI(3);
 

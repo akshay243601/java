@@ -32,8 +32,8 @@ public class BoysAndGirlMaxStandingTogether {
 	public static void main(String[] args) {
 		List<String> str = new ArrayList<>();
 		str.add("3"); // no. of Test Cases
-		str.add("3 1"); // 1st Test Case :
-		str.add("5 1"); // 2nd Test Case :
+		str.add("20 5"); // 1st Test Case :
+		str.add("999999 21313"); // 2nd Test Case :
 		str.add("25 4");// 3rd Array Values :
 
 		int noOfTestCases = Integer.parseInt(str.get(0));

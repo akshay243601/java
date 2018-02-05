@@ -10,11 +10,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
+@Entity(name="student")
 @Table(name="Student")
 public class Student 
 {
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
 	private int studentId;
 	
 	//@Transient

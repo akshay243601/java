@@ -5,16 +5,15 @@
 	<session-factory>
 	
 		<!-- Database Connection Information -->
-		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
-		<property name="connection.username">system</property>
-		<property name="connection.password">oracle</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://snagpal.blackarrow-corp.com:3306/demoAKTest</property>
+		<property name="connection.username">root</property>
 		
 		 <!-- Echo all executed SQL to stdout  -->
 		<property name="show_sql">true</property>
 		
 		<!--   SQL dialect -->
-		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		
 		<!--   Disable the second-level cache.  -->
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
@@ -22,8 +21,9 @@
 		<property name="connection.pool_size">2</property>
 		
 		<!--   Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 		
+		<mapping class="com.akshay.BasicOperation.Employee"/>
 		
 		<mapping class="com.akshay.hibernate.Student"/>
 		<mapping class="com.akshay.hibernate.StudentDetail"/>

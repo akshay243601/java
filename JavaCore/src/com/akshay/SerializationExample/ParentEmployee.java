@@ -5,7 +5,7 @@ public class ParentEmployee
 	private int EmployeeId;
 	private String ParentEmployeeName;
 	
-	public String CheckOverrideVal = "Parent1";
+	public String CheckOverrideVal = "Parent2";
 	
 	public String parentClassVariable;
 	

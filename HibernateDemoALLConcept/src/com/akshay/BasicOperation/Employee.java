@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
+@Entity(name="Employee_Information")
 @Table(name="Employee_Information")
 public class Employee 
 {

@@ -20,6 +20,7 @@ public class StudentDetail {
 	
 	@Id @GeneratedValue(generator="newGenerator")
 	@GenericGenerator(name="newGenerator" , strategy="foreign", parameters={@Parameter(value="student", name="property")}) // this line of code will stop for Hibernate to create diff. Id. By using this Hibernate create the same Id which is created for Student table
+	//@Id @GeneratedValue(strategy=javax.persistence.GenerationType.AUTO)
 	private int studentId;
 	
 	private String studentMobile;

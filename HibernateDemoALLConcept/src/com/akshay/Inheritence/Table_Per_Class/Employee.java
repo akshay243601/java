@@ -1,9 +1,6 @@
 package com.akshay.Inheritence.Table_Per_Class;
 
-import javax.annotation.Generated;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,12 +8,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="EmployeePERCLASS")
 @Table(name="EmployeePERCLASS")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Employee {
 
-	@Id @GeneratedValue
+//	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=javax.persistence.GenerationType.TABLE)
 	private int EmployeeId;
 	private String EmployeeName;
 

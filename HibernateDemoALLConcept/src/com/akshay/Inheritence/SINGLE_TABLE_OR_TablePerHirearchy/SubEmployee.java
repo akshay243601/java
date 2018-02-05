@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 
-@Entity
+@Entity(name="SubEmployeeInheritence")
 @Table(name="EmployeeInheritence")
 @DiscriminatorValue("SUB_EMP")
 public class SubEmployee extends Employee

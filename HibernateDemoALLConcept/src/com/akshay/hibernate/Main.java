@@ -32,9 +32,9 @@ public class Main {
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
 		
-		session.save(studentDetail);
+		/*session.save(studentDetail);
 		session.save(studentDetail1);
-		
+		*/
 		tran.commit();
 		session.close();
 		sessionFactory.close();

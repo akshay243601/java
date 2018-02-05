@@ -25,7 +25,7 @@ public class Employee extends ParentEmployee implements Serializable
 	
 	public final String checkForFinalHavingValue="Value of final Variable CCCCCCCCCCCCCCCCCCCCC";
 	
-	public String CheckOverrideVal = "Employee1";
+	public String CheckOverrideVal = "Employee2";
 	
 	public String childClassVariable;
 	

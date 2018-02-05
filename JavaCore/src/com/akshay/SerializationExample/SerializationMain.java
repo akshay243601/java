@@ -49,13 +49,13 @@ public class SerializationMain
 	{
 		try
 		{
-			String filePath  = "D:/Study/Dust/SerializedObject.txt";
+			String filePath  = "D:/Personnel/Dust/SerializedObject.txt";
 			
 	
-/*			ParentEmployee emp = new Employee("A");
+			ParentEmployee emp = new Employee("A");
 			
 			System.out.println(emp.CheckOverrideVal);
-			//serializeObject(emp, filePath);
+			serializeObject(emp, filePath);
 			System.out.println(emp.CheckOverrideVal);
 			
 			
@@ -63,9 +63,9 @@ public class SerializationMain
 			System.out.println(p.CheckOverrideVal);
 			Employee e = (Employee)deserializeObject(filePath);
 			System.out.println(e.CheckOverrideVal);
-			*/
 			
-			Employee emp111 = new Employee("A");
+			
+/*			Employee emp111 = new Employee("A");
 			emp111.parentClassVariable = "ParentClass Val is initialized";
 			emp111.childClassVariable = "ChileClass Val is initialized";
 			
@@ -75,7 +75,7 @@ public class SerializationMain
 			serializeObject(emp111, filePath);
 			Employee e1111 = (Employee)deserializeObject(filePath);
 			System.out.println(e1111.parentClassVariable);
-
+*/
 /*			
 			Employee emp = new Employee("Akshay Gupta Check Blank Final Variable");
 			emp.CompanyName = "Oracle COMPANY";

@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-@Entity
+@Entity(name="Employee_ManyToOne")
 public class Employee 
 {
 	@Id @GeneratedValue

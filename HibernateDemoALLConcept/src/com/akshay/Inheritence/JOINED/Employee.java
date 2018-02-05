@@ -7,7 +7,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="EmployeeJOINED")
 @Table(name="EmployeeJOINED")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Employee {

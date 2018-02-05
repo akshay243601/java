@@ -6,7 +6,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 
-@Entity
+@Entity(name="SubEmployeeJOINED")
 @Table(name="SubEmployeeJOINED")
 @PrimaryKeyJoinColumn(name="EmployeeId")
 public class SubEmployee extends Employee
