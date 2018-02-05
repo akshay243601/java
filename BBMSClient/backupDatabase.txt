@@ -1,0 +1,146 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 12, 2014 at 07:07 AM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `e-shopping`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `First` varchar(20) NOT NULL,
+  `Last` varchar(20) NOT NULL,
+  `DOB` date NOT NULL,
+  `Email` varchar(200) NOT NULL,
+  `Password` varchar(200) NOT NULL,
+  `Profile` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`First`, `Last`, `DOB`, `Email`, `Password`, `Profile`) VALUES
+('Akshay ', 'Gupta', '1992-01-29', 'admin@gmail.com', '1', 'userDoc/admin@gmail.com+mainImage.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categoryvisiblity`
+--
+
+CREATE TABLE IF NOT EXISTS `categoryvisiblity` (
+  `categoryCode` varchar(15) NOT NULL,
+  `cName` varchar(15) NOT NULL,
+  `pvisible` varchar(15) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categoryvisiblity`
+--
+
+INSERT INTO `categoryvisiblity` (`categoryCode`, `cName`, `pvisible`) VALUES
+('001', 'shoe', 'visible'),
+('002', 'jacket', 'visible'),
+('004', 'shirts', 'hidden'),
+('007', 'jeans', 'visible'),
+('009', 'watch', 'visible');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productinfo`
+--
+
+CREATE TABLE IF NOT EXISTS `productinfo` (
+  `pcode` varchar(20) NOT NULL,
+  `pname` varchar(20) NOT NULL,
+  `pcategory` varchar(20) NOT NULL,
+  `pimage` varchar(200) NOT NULL,
+  `pprice` int(10) NOT NULL,
+  `quantity` varchar(10) NOT NULL,
+  `pvisible` varchar(10) NOT NULL,
+  `pdescription` varchar(1000) NOT NULL,
+  `subCategory` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `productinfo`
+--
+
+INSERT INTO `productinfo` (`pcode`, `pname`, `pcategory`, `pimage`, `pprice`, `quantity`, `pvisible`, `pdescription`, `subCategory`) VALUES
+('0123', 'shoes', 'shoe', 'ProductImage/shoe4.jpg', 12670, '12', 'visible', 'good Product', 'Canvas'),
+('201', 'Converse Casual Shoe', 'shoe', 'ProductImage/shoe4.gif', 1550, '10', 'visible', 'good Product', 'Sport'),
+('1266', 'shirt', 'shirts', 'ProductImage/jacket5.jpg', 1490, '10', 'hidden', 'good Product', ''),
+('879', 'Puma Shirts', 'shirts', 'ProductImage/jacket10.jpg', 1573, '1', 'visible', 'good Product', ''),
+('256', 'Nike shirts', 'shirts', 'ProductImage/jacket4.jpg', 1200, '12', 'visible', 'good Product', ''),
+('129', 'John Player T-shirts', 'shirts', 'ProductImage/jacket8.jpg', 1350, '12', 'visible', 'good Product', ''),
+('263', 'winter Special jacke', 'shirts', 'ProductImage/jacket3.jpg', 1500, '10', 'visible', 'good Product', ''),
+('090', 'Sports Jackets', 'shirts', 'ProductImage/jacket1.jpg', 890, '1234', 'visible', 'good Product', ''),
+('487', 'Nike Sports Jackets', 'jacket', 'ProductImage/jacket3.jpg', 9000, '10', 'visible', 'good Product', ''),
+('909', 'Nike wallet', 'wallets', 'ProductImage/wallet6.jpg', 500, '3', 'visible', 'good Product', ''),
+('555', 'Jackets', 'jacket', 'ProductImage/jacket7.jpg', 8900, '10', 'visible', 'good Product', ''),
+('666', 'Shoes', 'shoe', 'ProductImage/shoe5.jpg', 9000, '10', 'visible', 'Really An Awsm Product', ''),
+('098', 'Shirt', 'shirts', 'ProductImage/jacket4.jpg', 1542, '5', 'visible', 'Very Good Product', ''),
+('531', 'aaa', 'mobiles', 'ProductImage/jacket7.jpg', 123, '1', 'visible', 'zss', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcategory`
+--
+
+CREATE TABLE IF NOT EXISTS `subcategory` (
+  `sCode` varchar(40) NOT NULL,
+  `sName` varchar(40) NOT NULL,
+  `pvisible` varchar(40) NOT NULL,
+  `categoryname` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subcategory`
+--
+
+INSERT INTO `subcategory` (`sCode`, `sName`, `pvisible`, `categoryname`) VALUES
+('990', 'Canvas', 'visible', 'shoe'),
+('287', 'Sport', 'visible', 'shoe'),
+('535', 'Lather', 'visible', 'jacket'),
+('435', 'Couton', 'visible', 'jacket'),
+('029', 'Reebok', 'visible', 'watch'),
+('097', 'Puma', 'visible', 'jacket'),
+('756', 'Addidas', 'visible', 'shoe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `First` varchar(20) NOT NULL,
+  `Last` varchar(20) NOT NULL,
+  `DOB` date NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `Profile` varchar(2000) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`First`, `Last`, `DOB`, `Email`, `Password`, `Profile`) VALUES
+('Akshay', 'Gupta', '2014-03-02', 'aksahy243601@gmail.com', '123', 'userDoc/aksahy243601@gmail.com+mainImage.jpg'),
+('Akshay', 'Gupta', '1992-12-09', 'akshay243601@gmail.com', '1', 'userDoc/akshay243601@gmail.com+mainImage.jpg');

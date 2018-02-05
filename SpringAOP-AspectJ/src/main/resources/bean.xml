@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- Enable AspectJ style of Spring AOP -->
+	<aop:aspectj-autoproxy />
+	<bean name="customerService"
+		class="com.javasampleapproach.springaop.service.CustomerService" />
+
+
+	<!-- Bean for Services -->
+	<bean name="customerAnotherService"
+		class="com.javasampleapproach.springaop.service.CustomerAnotherService" />
+
+	<bean name="customerAdvanceService"
+		class="com.javasampleapproach.springaop.service.CustomerAdvanceService" />
+
+	<bean name="customerAnnotationService"
+		class="com.javasampleapproach.springaop.service.CustomerLoggableService" />
+
+	<!-- Bean for Aspect -->
+	<bean name="customerAspect"
+		class="com.javasampleapproach.springaop.aspect.CustomerAspect" />
+
+	<bean name="customerAspectPointcut"
+		class="com.javasampleapproach.springaop.aspect.CustomerAspectPointcut" />
+
+	<bean name="customerAspectJointPoint"
+		class="com.javasampleapproach.springaop.aspect.CustomerAspectJoinPoint" />
+
+	<bean name="customerAspectAnnotation"
+		class="com.javasampleapproach.springaop.aspect.CustomerAspectAnnotation" />
+</beans>
+
+

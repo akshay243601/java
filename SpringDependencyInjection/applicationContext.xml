@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-init-method="customAfterPropertiesSet"
+	default-destroy-method="customDestroy"
+	>
+	
+	<bean id="objParent" class="Triangle" autowire="byType">
+		<property name="shapeObj1" ref="shapeObj1">
+	</property>
+	</bean>
+	
+	
+	<bean id="obj" class="Triangle" autowire="byType" parent="objParent">
+		<property name="shapeObj2" ref="shapeObj2" />
+	</bean>
+	
+	<bean id="objC" class="Triangle" autowire="byType" parent="obj" init-method="customAfterPropertiesSet" destroy-method="customDestroy">
+		<property name="shapeObj3" ref="shapeObj3"/>
+	</bean>
+	
+	
+	<bean class="Shape" id="shapeObj1">
+		<property name="height" value="${shape1.LengthValue}"></property>
+		<property name="type" value="${Type}"></property>
+	</bean>
+	 
+	<bean id="shapeObj2" class="Shape">
+		<property name="height" value="2000"></property>
+		<property name="type" value="Triangdfsdle2"></property>
+	</bean>
+	
+	<bean id="shapeObj3" class="Shape">
+		<property name="height" value="3000"></property>
+		<property name="type" value="Triadfsfngle3"></property>
+	</bean>
+	
+	<bean class="MyBeanPostProcessor"/>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="myProperties.properties"></property>
+	</bean>
+</beans>
