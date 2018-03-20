@@ -17,6 +17,14 @@ public class ReverseOfString {
 		return String.valueOf(rev);
 	}
 	
+	public static String reverseWithoutLoop(String value){
+		
+		if(value == null || value.isEmpty()){
+			return null;
+		}
+		return  value.charAt(value.length()-1) +  reverse(value.substring(0, value.length()-1));
+	}
+	
 	public static void main(String[] args) {
 		String value="dsdgfg";
 		String revValue=reverse(value);
@@ -25,6 +33,14 @@ public class ReverseOfString {
 		String revValue1=reverse(revValue);
 		System.out.println(revValue1);
 		
+		System.out.println(value.equals(revValue1));
+		
+		revValue = reverseWithoutLoop(value);
+		revValue1 = reverseWithoutLoop(revValue);
+		
+		System.out.println(revValue1);
+		System.out.println(revValue);
+
 		System.out.println(value.equals(revValue1));
 		
 	}

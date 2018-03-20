@@ -110,11 +110,13 @@ public class BasicsMain extends ParentClass {
 
 	// find the no. is factorial or not betwen the range
 	public static void printFactorial(int start, int end) {
+		System.out.println("Start of fact...");
 		for (int i = start; i <= end; i++) {
 			if (isFactorial(i)) {
 				System.out.println(i);
 			}
 		}
+		System.out.println("Start of fact...");
 	}
 
 	// find no, is factorial or not
@@ -122,8 +124,12 @@ public class BasicsMain extends ParentClass {
 		int temp = 1;
 		for (int i = 2; i <= val; i++) {
 			temp = temp * i;
-			if (temp == val)
+			if (temp == val){
 				return true;
+			}
+			else if(temp > val){
+				return false;
+			}
 		}
 		return false;
 	}
@@ -278,12 +284,37 @@ public class BasicsMain extends ParentClass {
 	public static void method(Object o) {
 		System.out.println("Object impl..");
 	}
+	
+	/*public static void method(Integer o) {
+		System.out.println("Object impl..");
+	}*/
 
 	public static void method(String s) {
 		System.out.println("String impl..");
 	}
 
 	public static void main(String args[]) {
+		
+
+		method(null);
+		String s1 = "Sachin";
+		String s2 = "Sachin";
+		String s3 = new String("Sachin");
+		String s4 = "Saurav";
+		System.out.println(s1.equals(s2));// true
+		System.out.println(s1.equals(s3));// true
+		System.out.println(s1.equals(s4));// false
+
+		StringVal(s1);
+		System.out.println(s1);
+		StringVal(s3);
+		System.out.println(s3);
+
+		System.out.println(s1 == s2);
+		System.out.println(s1 == s3);
+		System.out.println(s1 == s4);
+
+		
 		String values = "a,v,b,a,v,a";
 		Set<String> splitValues = new HashSet<String>(Arrays.asList(values.split(",")));
 		for (String value : splitValues) {
@@ -327,24 +358,6 @@ public class BasicsMain extends ParentClass {
 		newValues.addAll(oldValues);
 
 		System.out.println(newValues);
-
-		method(null);
-		String s1 = "Sachin";
-		String s2 = "Sachin";
-		String s3 = new String("Sachin");
-		String s4 = "Saurav";
-		System.out.println(s1.equals(s2));// true
-		System.out.println(s1.equals(s3));// true
-		System.out.println(s1.equals(s4));// false
-
-		StringVal(s1);
-		System.out.println(s1);
-		StringVal(s3);
-		System.out.println(s3);
-
-		System.out.println(s1 == s2);
-		System.out.println(s1 == s3);
-		System.out.println(s1 == s4);
 
 		final BasicsMain obj = new BasicsMain();
 		obj.setI(3);

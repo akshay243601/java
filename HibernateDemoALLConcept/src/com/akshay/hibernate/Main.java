@@ -19,22 +19,22 @@ public class Main {
 
 		StudentDetail studentDetail = new StudentDetail();
 		studentDetail.setStudentMobile("123456");
-		studentDetail.setDob(new Date());
+	//	studentDetail.setDob(new java.sql.Date(new Date().getTime()));
 		
 		studentDetail.setStudent(student);
 		
 		StudentDetail studentDetail1 = new StudentDetail();
 		studentDetail1.setStudentMobile("22323");
-		studentDetail1.setDob(new Date());
+	//	studentDetail1.setDob(new java.sql.Date(new Date().getTime()));
 		studentDetail1.setStudent(student1);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
 		
-		/*session.save(studentDetail);
+		session.save(studentDetail);
 		session.save(studentDetail1);
-		*/
+		
 		tran.commit();
 		session.close();
 		sessionFactory.close();

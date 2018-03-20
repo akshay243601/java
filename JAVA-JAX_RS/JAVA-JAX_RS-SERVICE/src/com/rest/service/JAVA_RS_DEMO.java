@@ -33,8 +33,8 @@ public class JAVA_RS_DEMO {
 	
 	//http://stackoverflow.com/questions/8594707/jersey-exception-severe-a-message-body-reader-for-java-class/17777247#17777247
 	@GET
-	@Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_XML)
+//	@Consumes(MediaType.APPLICATION_XML)
+ //   @Produces(MediaType.APPLICATION_XML)
 	@Path("/getPerson/{Name}/{Email}")
 	public Person GetStuddentDetaills(@PathParam("Name") String Name, @PathParam("Email") String Email)
 	{

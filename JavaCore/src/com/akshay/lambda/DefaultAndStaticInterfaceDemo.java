@@ -50,7 +50,6 @@ interface InterfaceWithDefaultAndStaticMethod1 {
 	default void defaultMethod() {
 		System.out.println("InterfaceWithDefaultAndStaticMethod1 : defaultMethod");
 	}
-
 	static void staticMethod() {
 		System.out.println("InterfaceWithDefaultAndStaticMethod1 : staticMethod");
 	}

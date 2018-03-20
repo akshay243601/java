@@ -44,12 +44,12 @@ public class String1IsAnagramOrNotString2 {
 		Str1 = new String(char1);
 		Str2 = new String(char2);
 
-		return char1.equals(char2);
+		return Str1.equals(Str2);
 
 	}
 
 	public static void main(String[] args) {
-		String smallStr = "mazo";
+		String smallStr = "maoz";
 		String largeStr = "amazon";
 		System.out.println(isString1AnagramOrNotString2(smallStr, largeStr));
 	}

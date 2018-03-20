@@ -1,5 +1,10 @@
 package com.akshay.lambda;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class MyLambda {
 
 	public static void main(String args[]) {
@@ -22,13 +27,26 @@ public class MyLambda {
 			return a + b;
 		};
 		System.out.println(myAddLambda.add(2, 3));
-		
+
 		myAddLambda.log();
 		AddLambda.staticMethodInInterface();
 		System.out.println(myAddLambda);
 		System.out.println(myPrintLambda);
 		System.out.println(myPrintLambda1);
 		System.out.println(myPrintLambda2);
+
+		PrintLambdaWithSamElseBadName lambda1 = (name) -> name.equalsIgnoreCase("SAM") ? "HELLO " + name
+				: "BAD " + name;
+		List<String> list = new ArrayList<>();
+		list.add("SAM");
+		list.add("AKSHAY1");
+		list.add("SAM");
+		list.add("AKSHAY2");
+		list.add("SAM");
+		list.add("AKSHAY3");
+		list.add("SAM");
+		list.add("SAM4");
+		list.parallelStream().forEach(x -> System.out.println(lambda1.getName(x)));
 
 	}
 
@@ -50,4 +68,9 @@ interface AddLambda {
 @FunctionalInterface
 interface PrintLambda {
 	void printName(String name);
+}
+
+@FunctionalInterface
+interface PrintLambdaWithSamElseBadName {
+	String getName(String name);
 }

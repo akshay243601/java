@@ -4,21 +4,19 @@ import java.awt.Checkbox;
 
 public class WrapperDemo {
 	
-	
-
-	
-	
-	
-	
-	
-	
-	
 	public static void CheckArray(int[] arr) {
 		arr[0] = 10;
 	}
 
 	public static void CheckArrayForNull(int[] arr) {
 		arr = null;
+	}
+
+	
+
+	public static void CheckArrayForNewObject(int[] arr) {
+		arr = new int[1];
+		arr[0] = 420;
 	}
 
 	
@@ -29,7 +27,7 @@ public class WrapperDemo {
 	
 	public static void CheckArrayForChange(int[] arr) {
 		int brr[] = arr;
-		brr[0] = 10;
+		brr[0] = 45;
 
 	}
 
@@ -53,6 +51,13 @@ public class WrapperDemo {
 		}
 		System.out.println();
 		CheckArrayForNull(arr);
+
+		for (int i : arr) {
+			System.out.print(i + " , ");
+		}
+		
+		System.out.println();
+		CheckArrayForNewObject(arr);
 
 		for (int i : arr) {
 			System.out.print(i + " , ");

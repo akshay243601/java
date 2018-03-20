@@ -15,11 +15,14 @@ public class FindDuplicateAndRemove {
 		arr.add("Shreshth");
 		arr.add("Akshay");
 		arr.add("Sourabh");
-		
+
 		System.out.println(arr);
 		Set<String> set = new HashSet<String>();
-		arr.stream().parallel().forEach(x -> set.add(x));
-		
+		arr.stream().parallel().forEach(x -> {
+			set.add(x);
+			System.out.println(x);
+		});
+
 		System.out.println(set);
 
 	}

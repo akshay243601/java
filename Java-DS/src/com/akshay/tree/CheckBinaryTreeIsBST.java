@@ -77,7 +77,20 @@ public class CheckBinaryTreeIsBST {
 	
 	public static void main(String args[]) {
 		CheckBinaryTreeIsBST binaryTree = new CheckBinaryTreeIsBST();
+			
+		TreeNode root = new TreeNode(20);
+		root.left = new TreeNode(10);
+		root.right = new TreeNode(25);
+		root.left.left = new TreeNode(5);
+		root.left.right = new TreeNode(17);
+		root.right.left = new TreeNode(22);
+		root.right.right = new TreeNode(30);
+		root.right.right.right = new TreeNode(35);
+		binaryTree.printInOrderTraverse(root);
+
+		System.out.println("Binary tree iS  bst ?:- " + binaryTree.isBST(root));
 		
+		System.out.println();
 		binaryTree.insert(17);
 		binaryTree.insert(20);
 		binaryTree.insert(15);
@@ -87,22 +100,6 @@ public class CheckBinaryTreeIsBST {
 		binaryTree.insert(10);
 		binaryTree.insert(3);
 		/*binaryTree.insert(8);*/
-		
-		
-		TreeNode root = new TreeNode(5);
-		root.left = new TreeNode(3);
-		root.right = new TreeNode(8);
-		root.left.left = new TreeNode(2);
-		root.left.right = new TreeNode(6);
-		root.right.left = new TreeNode(6);
-		root.right.right = new TreeNode(9);
-		root.right.right.right = new TreeNode(19);
-		binaryTree.printInOrderTraverse(root);
-
-		System.out.println("Binary tree iS  bst ?:- " + binaryTree.isBST(root));
-		
-		System.out.println();
-		
 		binaryTree.inOrderTraverse();
 		
 		System.out.println();

@@ -43,9 +43,6 @@ class LinkedList1 {
 	public static void printList() {
 
 		Node node = head;
-		if (node == null)
-			return;
-
 		while (node != null) {
 			System.out.print(node.data + " ");
 			node = node.next;

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name="Student_Spring")
 public class Student 
 {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue//(strategy = GenerationType.AUTO)
 	private int id;
 	
 	private String studentName;

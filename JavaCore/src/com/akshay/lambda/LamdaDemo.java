@@ -109,9 +109,9 @@ public class LamdaDemo {
 		System.out.println();
 
 		Spliterator<Employee> spliteratorEmployee = empList.stream().spliterator();
-		System.out.println();
+		System.out.println("spliteratorEmployee");
 		System.out.println(spliteratorEmployee);
-
+		
 		empList.stream().sorted((Employee o1, Employee o2) -> {
 			return o1.getName().compareTo(o2.getName());
 		});
@@ -131,5 +131,8 @@ public class LamdaDemo {
 																		// not
 																		// sorted
 
+		
+		
+		
 	}
 }

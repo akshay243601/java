@@ -40,6 +40,7 @@ public class LongestPolindrome {
 	public static void main(String args[]) {
 
 		System.out.println(getLongestPolingdrome("sdhaaaaaaaaajkdhsjhfjkdhjfhdjhkAkshayyahskAskhsdjfhdkjfd"));
+		System.out.println(getLongestPolingdrome("aa1aaaaa"));
 
 	}
 }

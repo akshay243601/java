@@ -76,6 +76,7 @@ public class DeleteDuplicateNodeFromLinkedList {
 		list.push(7);
 		list.push(8);
 		list.push(8);
+		
 		System.out.println("Befor delete");
 		list.printList();
 		System.out.println();

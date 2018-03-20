@@ -2,6 +2,8 @@ package com.akshay.CollectionExamples;
 
 import java.net.Inet4Address;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Stream;
 
@@ -27,7 +29,18 @@ public class HashMapMain {
 
 		
 	
-		
+	    Map<String,String> premiumPhone = new HashMap<String,String>();
+        premiumPhone.put("Apple", "iPhone");
+        premiumPhone.put("HTC", "HTC one");
+        premiumPhone.put("Samsung","S5");
+        
+        Iterator<String> iterator = premiumPhone.keySet().iterator();
+        
+        while (iterator.hasNext())
+        {
+            System.out.println(premiumPhone.get(iterator.next()));
+            premiumPhone.put("Sony", "Xperia Z");
+        }
 	
 		
 		

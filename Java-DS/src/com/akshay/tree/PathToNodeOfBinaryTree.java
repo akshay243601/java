@@ -33,11 +33,12 @@ public class PathToNodeOfBinaryTree {
 		root.left.left = new TreeNode(4);
 		root.left.right = new TreeNode(5);
 
-		root.left.right.right = new TreeNode(8);
 		root.left.right.left = new TreeNode(7);
+		root.left.right.right = new TreeNode(9);
 
-		getPath(root, 4);
-		Collections.sort(path);
+		
+		getPath(root, 10);
+		Collections.reverse(path);
 		for (int pathVal : path) {
 			System.out.print(pathVal + " ");
 		}

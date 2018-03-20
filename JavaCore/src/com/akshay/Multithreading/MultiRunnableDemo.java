@@ -57,17 +57,19 @@ public class MultiRunnableDemo {
 		System.out.println("Enter the class which u want to run");
 		int i = sc.nextInt();
 
-		Thread thread = null;
+	
+		Runnable obj = null;
 		if (i == 1) {
-			Runnable1 obj = new Runnable1("Thread 1");
-			thread = new Thread(obj);
+			obj = new Runnable1("Thread 1");
 		}
 		if (i == 2) {
-			thread = new Thread(new Runnable2("Thread 2"));
+			obj = new Runnable2("Thread 2");
 		}
 		if (i == 3) {
-			thread = new Thread(new Runnable3("Thread 3"));
+			obj = new Runnable3("Thread 3");
 		}
+		
+		Thread thread = new Thread(obj);
 		thread.start();
 	}
 }
