@@ -8,17 +8,17 @@
 	default-destroy-method="customDestroy"
 	>
 	
-	<bean id="objParent" class="Triangle" autowire="byType">
+	<bean id="objParent" class="org.akshay.Triangle" autowire="byType">
 		<property name="shapeObj1" ref="shapeObj1">
 	</property>
 	</bean>
 	
 	
-	<bean id="obj" class="Triangle" autowire="byType" parent="objParent">
+	<bean id="obj" class="org.akshay.Triangle" autowire="byType" parent="objParent">
 		<property name="shapeObj2" ref="shapeObj2" />
 	</bean>
 	
-	<bean id="objC" class="Triangle" autowire="byType" parent="obj" init-method="customAfterPropertiesSet" destroy-method="customDestroy">
+	<bean id="objC" class="org.akshay.Triangle" autowire="byType" parent="obj" init-method="customAfterPropertiesSet" destroy-method="customDestroy">
 		<property name="shapeObj3" ref="shapeObj3"/>
 	</bean>
 	

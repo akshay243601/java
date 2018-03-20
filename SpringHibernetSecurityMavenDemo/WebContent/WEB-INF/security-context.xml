@@ -9,13 +9,15 @@
 
 	<http auto-config="true" >
 		<intercept-url pattern="/*" access="hasRole('ROLE_USER')"/>
-		<http-basic/>	
+		<http-basic/>
+		<csrf disabled="true"/>
 	</http>
 	<authentication-manager>
 		<authentication-provider>
 			<user-service >
 				<user name="A"  password="A" authorities="ROLE_USER"/>
 			</user-service>
+			
 		</authentication-provider>
 	</authentication-manager>
 

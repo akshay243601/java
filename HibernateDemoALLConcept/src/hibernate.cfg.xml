@@ -48,9 +48,13 @@
 		<mapping class="com.akshay.Inheritence.Table_Per_Class.Department"/> 
 		
 		
-				<!-- Mapping for Inhertience "JOINED" Related Class  -->		
+		<!-- Mapping for Inhertience "JOINED" Related Class  -->		
 		<mapping class="com.akshay.Inheritence.JOINED.Employee"/>
 		<mapping class="com.akshay.Inheritence.JOINED.SubEmployee"/>
 		<mapping class="com.akshay.Inheritence.JOINED.Department"/>
+		
+		<!-- Mapping for Transaction Propogation Related Class  -->		
+		<mapping class="com.akshay.transactionPropogation.Employee"/>
+		
 	</session-factory>
 </hibernate-configuration>
