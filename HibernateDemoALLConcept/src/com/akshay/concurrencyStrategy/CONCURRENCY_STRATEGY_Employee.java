@@ -8,11 +8,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Table(name = "CONCURRENCY_STRATEGY_Employee")
-//@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)    //this will not work if you are not enable secind level cache
+//@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)    //this will not work if you are not enable second level cache
 //@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 //@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 @Cache(usage=CacheConcurrencyStrategy.TRANSACTIONAL)

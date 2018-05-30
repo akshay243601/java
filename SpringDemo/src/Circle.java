@@ -1,5 +1,7 @@
 
 public class Circle extends Shape{
+
+	@CustomAnnotation(value="Akshay")
 	private String names;
 
 	public String getNames() {

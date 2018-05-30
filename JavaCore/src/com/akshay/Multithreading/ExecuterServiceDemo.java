@@ -9,7 +9,7 @@ public class ExecuterServiceDemo {
 
 	public static void main(String args[]) {
 
-		final ExecutorService executerService = Executors.newFixedThreadPool(3);
+		final ExecutorService executerService = Executors.newFixedThreadPool(2);
 		Thread cacheService = new Thread(new Service1("CacheService", 1000));
 		Thread alertService = new Thread(new Service1("AlertService", 1000));
 		Thread validationService = new Thread(new Service1("ValidationService", 1000));

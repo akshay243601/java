@@ -8,8 +8,7 @@ public class MyFactoryBeanProcesssor implements BeanFactoryPostProcessor{
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory obj)
 			throws BeansException {
-System.out.println("My Bean Post Processoer called");
-		
+		System.out.println("My Bean Post Processoer called " + this.getClass().getName() + " " +  this.getClass().getEnclosingMethod() + " ");
 	}
 
 }

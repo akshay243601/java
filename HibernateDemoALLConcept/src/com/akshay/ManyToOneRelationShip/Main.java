@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class Main 
@@ -21,8 +23,7 @@ public class Main
 		Employee employee1 = new Employee();
 		employee1.setEmployeeName("Karan");
 		employee1.setEmployeeAddress(address);
-	
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		SessionFactory sessionFactory =  new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		Transaction tran = session.beginTransaction();
 

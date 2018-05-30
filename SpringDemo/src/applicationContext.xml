@@ -8,19 +8,19 @@
 	default-destroy-method="customDestroy"
 	>
 
-<bean id="objParent" class="Triangle" autowire="byType">
+<bean id="objParent" class="Triangle" autowire="byName">
 	<property name="shapeObj1" ref="shapeObj1">
 	</property>
 </bean>
 
 
-<bean id="obj" class="Triangle" autowire="byType" parent="objParent">
+<bean id="obj" class="Triangle" autowire="byName" parent="objParent">
 <property name="shapeObj2" ref="shapeObj2">
 </property>
 
 </bean>
 
-<bean id="objC" class="Triangle" autowire="byType" parent="obj" init-method="customAfterPropertiesSet" destroy-method="customDestroy">
+<bean id="objC" class="Triangle" autowire="byName" parent="obj" init-method="customAfterPropertiesSet" destroy-method="customDestroy">
 <property name="shapeObj3" ref="shapeObj3"/>
 
 </bean>
@@ -42,6 +42,15 @@
 	<property name="height" value="3000"></property>
 	<property name="type" value="Triadfsfngle3"></property>
 </bean>
+
+
+
+<bean id="objCircle" class="Circle" >
+	
+</bean>
+
+
+
 <bean class="MyBeanPostProcessor"/>
 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 <property name="location" value="myProperties.properties"></property>

@@ -8,7 +8,7 @@ public class CountDownLatchDemo {
 
 	public static void main(String args[]) {
 
-		final CountDownLatch latch = new CountDownLatch(3);
+		final CountDownLatch latch = new CountDownLatch(3);   
 		Thread cacheService = new Thread(new Service("CacheService", 10000, latch));
 		Thread alertService = new Thread(new Service("AlertService", 1000, latch));
 		Thread validationService = new Thread(new Service("ValidationService", 1000, latch));
@@ -18,7 +18,7 @@ public class CountDownLatchDemo {
 		validationService.start();
 
 		try {
-			latch.await();
+			latch.await();//once latch count goes to 0 then it will execute line no. 22
 			System.out.println("All services are up, Application is starting now");
 		} catch (InterruptedException ie) {
 			ie.printStackTrace();

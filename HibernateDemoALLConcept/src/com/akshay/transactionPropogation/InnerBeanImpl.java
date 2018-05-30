@@ -3,11 +3,13 @@ package com.akshay.transactionPropogation;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Component
 public class InnerBeanImpl implements InnerBean {
 
 	@Autowired
@@ -22,7 +24,7 @@ public class InnerBeanImpl implements InnerBean {
 		 * If this transaction fail then parent transaction are also rollbacked.
 		 * 
 		 * **/
-	//	throw new RuntimeException("Rollback this transaction!");
+		throw new RuntimeException("Rollback this transaction!");
 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)

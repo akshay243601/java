@@ -8,7 +8,7 @@ public class TransactionPropogationDemo {
 	public static void test_Propogation_REQUIRED() {
 
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext_TRANSACTION_PROPOGATION.xml");
-		OuterBean testBean = (OuterBean) ctx.getBean("outerBean");
+		OuterBean testBean = (OuterBean) ctx.getBean(OuterBean.class);
 
 		Employee user = new Employee();
 		user.setUsername("johndoe");
@@ -19,7 +19,7 @@ public class TransactionPropogationDemo {
 
 	public static void test_Propogation_REQUIRED_NEW() {
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext_TRANSACTION_PROPOGATION.xml");
-		OuterBean testBean = (OuterBean) ctx.getBean("outerBean");
+		OuterBean testBean = (OuterBean) ctx.getBean(OuterBean.class);
 
 		Employee user = new Employee();
 		user.setUsername("johndoe");
@@ -37,7 +37,7 @@ public class TransactionPropogationDemo {
 //		ctx = new ClassPathXmlApplicationContext("applicationContext_CONCURRENCY_STRATEGY.xml");
 
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext_TRANSACTION_PROPOGATION.xml");
-		OuterBean testBean = (OuterBean) ctx.getBean("outerBean");
+		OuterBean testBean = (OuterBean) ctx.getBean(OuterBean.class);
 
 		Employee employee = new Employee();
 		employee.setUsername("johndoe");
@@ -48,7 +48,7 @@ public class TransactionPropogationDemo {
 
 	public static void test_Propogation_SUPPORTED() {
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext_TRANSACTION_PROPOGATION.xml");
-		OuterBean testBean = (OuterBean) ctx.getBean("outerBean");
+		OuterBean testBean = (OuterBean) ctx.getBean(OuterBean.class);
 
 		Employee user = new Employee();
 		user.setUsername("johndoe");
@@ -59,7 +59,7 @@ public class TransactionPropogationDemo {
 
 	public static void test_Propogation_NOT_SUPPORTED() {
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext_TRANSACTION_PROPOGATION.xml");
-		OuterBean testBean = (OuterBean) ctx.getBean("outerBean");
+		OuterBean testBean = (OuterBean) ctx.getBean(OuterBean.class);
 
 		Employee user = new Employee();
 		user.setUsername("johndoe");
@@ -71,7 +71,7 @@ public class TransactionPropogationDemo {
 
 	public static void test_Propogation_MANDATORY() {
 		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext_TRANSACTION_PROPOGATION.xml");
-		OuterBean testBean = (OuterBean) ctx.getBean("outerBean");
+		OuterBean testBean = (OuterBean) ctx.getBean(OuterBean.class);
 
 		Employee user = new Employee();
 		user.setUsername("johndoe");
@@ -83,17 +83,17 @@ public class TransactionPropogationDemo {
 
 	public static void main(String[] args) {
 
-		//test_Propogation_REQUIRED();
+	//	test_Propogation_REQUIRED();
 
-		// test_Propogation_REQUIRED_NEW();
+	//	 test_Propogation_REQUIRED_NEW();
 
-		// test_Propogation_NEVER();
+		 test_Propogation_NEVER();
 
-		 //test_Propogation_SUPPORTED();
+//		 test_Propogation_SUPPORTED();
 
-			test_Propogation_NOT_SUPPORTED();
+//			test_Propogation_NOT_SUPPORTED();
 
-		// test_Propogation_MANDATORY();
+//		 test_Propogation_MANDATORY();
 
 		// test_Propogation_NESTED();
 

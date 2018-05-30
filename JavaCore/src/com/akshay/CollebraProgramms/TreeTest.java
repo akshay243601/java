@@ -49,6 +49,10 @@ public class TreeTest {
 		}
 
 		TreeMap<Customer, String> treeMap = new TreeMap<Customer, String>();
+		//***********************************************************************************************//
+		//treeMap.put(null, "Akshay");    //We can't have null key in tree map
+		//***********************************************************************************************//
+		
 		treeMap.put(new Customer(809, "Akshay", "IT"), "Akshay");
 		treeMap.put(new Customer(801, "Karan", "CS"), "Karan");
 		treeMap.put(new Customer(805, "sahil", "EC"), "Sahil");
@@ -59,5 +63,7 @@ public class TreeTest {
 		for (Entry<Customer, String> entry : treeMap.entrySet()) {
 			System.out.println(((Customer) entry.getKey()).Id + " " + ((Customer) entry.getKey()).Name + " " + ((Customer) entry.getKey()).Department + " : " + entry.getValue());
 		}
+		
+
 	}
 }

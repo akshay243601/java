@@ -1,10 +1,12 @@
 package com.akshay.Multithreading;
 
+import java.util.TreeSet;
+
 public class DeadlockDemo {
 
 	Object lock1 = new Object();
 	Object lock2 = new Object();
-
+	
 	public void m1() {
 		System.out.println("m1 enter");
 		synchronized (lock1) {

@@ -2,9 +2,11 @@ package com.akshay.transactionPropogation;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@Component
 public class EmployeeDAOImpl implements EmployeeDAO {
 	@Autowired
 	private SessionFactory sessionFactory;

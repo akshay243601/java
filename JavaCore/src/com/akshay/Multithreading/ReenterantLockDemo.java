@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReenterantLockDemo extends Thread {
 
 	static int count = 0;
-	static final Lock lock = new ReentrantLock();
+	static final Lock lock = new ReentrantLock();   //without this lock it will give output everytime.
 
 	private static void increaseCount() {
 		count++;

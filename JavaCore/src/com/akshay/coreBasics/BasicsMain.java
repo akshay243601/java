@@ -5,19 +5,13 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import javax.management.StringValueExp;
-
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -124,10 +118,9 @@ public class BasicsMain extends ParentClass {
 		int temp = 1;
 		for (int i = 2; i <= val; i++) {
 			temp = temp * i;
-			if (temp == val){
+			if (temp == val) {
 				return true;
-			}
-			else if(temp > val){
+			} else if (temp > val) {
 				return false;
 			}
 		}
@@ -284,17 +277,68 @@ public class BasicsMain extends ParentClass {
 	public static void method(Object o) {
 		System.out.println("Object impl..");
 	}
-	
-	/*public static void method(Integer o) {
-		System.out.println("Object impl..");
-	}*/
+
+	/*
+	 * public static void method(Integer o) { System.out.println("Object impl.."
+	 * ); }
+	 * 
+	 * 
+	 * 10/0.0 ==>
+	 */
 
 	public static void method(String s) {
 		System.out.println("String impl..");
 	}
 
 	public static void main(String args[]) {
-		
+
+		String s11 = new String("A");
+		String s21 = String.valueOf(s11);
+		String s31 = "A";
+		String s41 = String.valueOf(s31);
+
+		System.out.println(s11 == s21); // f t
+		System.out.println(s21 == s41); // t f
+		System.out.println(s31 == s41); // t t
+
+		Map<StringBuffer, String> map = new HashMap<StringBuffer, String>();
+		System.out.println("Hashmap accept null true");
+		map.put(new StringBuffer("AB"), "A");
+		StringBuffer ad = new StringBuffer("A");
+		ad.append(new String("B"));
+		map.put(ad, "aaaa");
+		System.out.println(map);
+
+		stringObjectEquality();
+		performCheckingOverridingCalling();
+		java10();
+		try {
+			A obj1 = new A();
+
+			// Null pointer access: This expression of type Integer is null but
+			// requires auto-unboxing
+			System.out.println(obj1.methodOfA());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		try {
+			// Error as it is not implementing comparable and comparator
+			TreeSet<StringBuffer> t = new TreeSet<StringBuffer>();
+			t.add(new StringBuffer("f"));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		try {
+			System.out.println("Tree Set can't have null value");
+			// Error as it is not implementing comparable and comparator
+			TreeSet<String> t1 = new TreeSet<String>();
+			t1.add(null);
+		} catch (Exception e) {
+			System.out.println(e);
+			System.out.println("Tree Set can't have null value");
+		}
 
 		method(null);
 		String s1 = "Sachin";
@@ -314,7 +358,6 @@ public class BasicsMain extends ParentClass {
 		System.out.println(s1 == s3);
 		System.out.println(s1 == s4);
 
-		
 		String values = "a,v,b,a,v,a";
 		Set<String> splitValues = new HashSet<String>(Arrays.asList(values.split(",")));
 		for (String value : splitValues) {
@@ -322,8 +365,7 @@ public class BasicsMain extends ParentClass {
 				System.out.println(value.trim());
 			}
 		}
-		
-		
+
 		values = "a,,b,,,,,  ,   ,,   ";
 		splitValues = new HashSet<String>(Arrays.asList(values.split(",")));
 		for (String value : splitValues) {
@@ -345,10 +387,10 @@ public class BasicsMain extends ParentClass {
 		newMap.get("newMap").put("B", "B");
 		newMap.get("newMap").put("D", "D");
 
-		Set<String> oldValues = new TreeSet<>();
+		Set<String> oldValues = new TreeSet<String>();
 		oldValues.addAll(oldMap.get("oldMap").keySet());
 
-		Set<String> newValues = new TreeSet<>();
+		Set<String> newValues = new TreeSet<String>();
 		newValues.addAll(newMap.get("newMap").keySet());
 
 		System.out.println(oldValues);
@@ -509,5 +551,75 @@ public class BasicsMain extends ParentClass {
 		String binaryOutPut = Integer.toBinaryString(add);
 		return binaryOutPut;
 
+	}
+
+	private static void java10() {
+
+		Integer i = 10;
+		Integer j = 10;
+
+		System.out.println(i == j);
+
+		Integer i1 = 179;
+		Integer j1 = 179;
+
+		System.out.println(i1 == j1);
+
+		Long i2 = 10l;
+		Long j2 = 10l;
+
+		System.out.println(i2 == j2);
+
+		Long i21 = 179l;
+		Long j21 = 179l;
+
+		System.out.println(i21 == j21);
+
+	}
+
+	private static void performCheckingOverridingCalling() {
+		B obj = new C();
+		obj.method(new Integer(3));
+
+		// Integer i = new Integer(null);
+
+		// this will not compile because of null. String have 5 cons. and here
+		// it will confused.
+		// String s = new String(null);
+	}
+
+	private static void stringObjectEquality() {
+
+		String s1 = new String("A");
+		String s2 = new String("A");
+		String s3 = "A";
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put(s1, "A");
+		map.put(s2, "A");
+		map.put(s3, "A");
+
+		System.out.println(map);
+
+	}
+}
+
+class A {
+	int methodOfA() {
+		return (true ? null : 0);
+	}
+}
+
+class B {
+	void method(int i) {
+		System.out.println("B : method(int i) is called ");
+	}
+}
+
+class C extends B {
+
+	// This will not override parent class method.
+	void method(Integer i) {
+		System.out.println("C : method(Integer i) is called ");
 	}
 }

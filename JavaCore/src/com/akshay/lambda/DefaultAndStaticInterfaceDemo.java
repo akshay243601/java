@@ -37,10 +37,19 @@ interface InterfaceWithDefaultAndStaticMethod {
 	default void defaultMethod() {
 		System.out.println("InterfaceWithDefaultAndStaticMethod : defaultMethod");
 	}
+	
+	default void defaultMethod1() {
+		System.out.println("InterfaceWithDefaultAndStaticMethod : defaultMethod1");
+	}
 
 	static void staticMethod() {
 		System.out.println("InterfaceWithDefaultAndStaticMethod : staticMethod");
 	}
+	
+	static void staticMethod1() {
+		System.out.println("InterfaceWithDefaultAndStaticMethod : staticMethod1");
+	}
+
 }
 
 @FunctionalInterface

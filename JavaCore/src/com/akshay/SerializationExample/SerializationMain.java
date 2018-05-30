@@ -51,18 +51,22 @@ public class SerializationMain
 		{
 			String filePath  = "D:/Personnel/Dust/SerializedObject.txt";
 			
-	
+			System.out.println("Main is calling");
 			ParentEmployee emp = new Employee("A");
+			System.out.println(emp.CheckOverrideVal);
+			emp.setParentEmployeeGender("MALE");
+			serializeObject(emp, filePath);
 			
 			System.out.println(emp.CheckOverrideVal);
-			serializeObject(emp, filePath);
-			System.out.println(emp.CheckOverrideVal);
+			System.out.println(emp.getParentEmployeeGender());
 			
 			
 			ParentEmployee p = (ParentEmployee)deserializeObject(filePath);
 			System.out.println(p.CheckOverrideVal);
+			System.out.println(p.getParentEmployeeGender());
 			Employee e = (Employee)deserializeObject(filePath);
 			System.out.println(e.CheckOverrideVal);
+			System.out.println(e.getParentEmployeeGender());
 			
 			
 /*			Employee emp111 = new Employee("A");

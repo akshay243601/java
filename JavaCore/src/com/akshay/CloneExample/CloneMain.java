@@ -75,7 +75,7 @@ public class CloneMain
 		}
 		catch(Exception e)
 		{
-			
+			System.out.println(e);
 		}
 	}
 }

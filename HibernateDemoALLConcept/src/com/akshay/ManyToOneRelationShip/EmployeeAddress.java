@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+
+@Table
 @Entity
 public class EmployeeAddress 
 {
@@ -20,8 +23,8 @@ public class EmployeeAddress
 	private String addressName;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL)  //If you are not using the mappedBy then Hibernate will create a new Table which contain mapping of EmployeeId and AddressId
-	//@OneToMany(cascade = CascadeType.ALL, mappedBy="employeeAddress")//If you are using mappedBy then Hibernate will understand then which coloumn is used for mapping purpose and does not create any other table
+	//@OneToMany(cascade = CascadeType.ALL)  //If you are not using the mappedBy then Hibernate will create a new Table which contain mapping of EmployeeId and AddressId
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="employeeAddress")//If you are using mappedBy then Hibernate will understand then which coloumn is used for mapping purpose and does not create any other table
 	private Set<Employee> employee = new HashSet<Employee>();
 	
 	public Set<Employee> getEmployee() {

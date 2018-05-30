@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Propogation_Employee")
 @Table(name = "Propogation_Employee")
 public class Employee {
 

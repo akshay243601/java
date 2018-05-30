@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
+@Component
 @Aspect
 public class EmployeeAspect {
 	

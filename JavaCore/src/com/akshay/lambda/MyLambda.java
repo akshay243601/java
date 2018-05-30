@@ -49,13 +49,12 @@ public class MyLambda {
 		list.parallelStream().forEach(x -> System.out.println(lambda1.getName(x)));
 
 	}
-
 }
 
 @FunctionalInterface
 interface AddLambda {
 	int add(int a, int b);
-
+	
 	default void log() {
 		System.out.println("log");
 	}

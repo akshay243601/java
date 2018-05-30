@@ -74,5 +74,11 @@ public class CollectionHashTest {
 		for (Entry<Employee, String> entry : treeMap.entrySet()) {
 			System.out.println(((Employee) entry.getKey()).Id + " " + ((Employee) entry.getKey()).Name + " " + ((Employee) entry.getKey()).Department + " : " + entry.getValue());
 		}
+		
+	
+/*		for (Entry<Integer, Integer> entry : map.entrySet()) {
+			System.out.println(entry.getKey() + " " +entry.getKey());
+		}
+*/		
 	}
 }
