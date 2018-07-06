@@ -37,7 +37,6 @@ public class EmployeeController {
 	public boolean saveUser(@RequestBody User user, @PathVariable int id) {
 		return employeeService.updateUser(user, id);
 	}
-
 	
 	@RequestMapping(method=RequestMethod.GET, value="/user/{id}")
 	public User findUser(@PathVariable(value="id")  int id) {
