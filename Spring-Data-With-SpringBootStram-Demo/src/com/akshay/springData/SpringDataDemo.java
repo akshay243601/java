@@ -27,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.Data;
 
+
 @SpringBootApplication
 public class SpringDataDemo implements CommandLineRunner {
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

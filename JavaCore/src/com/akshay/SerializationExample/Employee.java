@@ -35,6 +35,11 @@ public class Employee extends ParentEmployee implements Serializable
 		checkFinalVariable = "CCCCCCCCCCCCCCCCCCC";
 	}
 	
+	public void getMessage(){
+		System.out.println("Employee :: getMessage() ");
+	}
+
+	
 	public int getId() {
 		return id;
 	}

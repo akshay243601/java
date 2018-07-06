@@ -37,13 +37,13 @@
 			</exclusions>
 		</dependency>
 
-		<!-- Oracle JDBC driver -->
+		<!-- Oracle JDBC driver 
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.0</version>
 		</dependency>
-
+ -->
 		<!-- HikariCP connection pool -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -64,15 +64,6 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<!-- Package as an executable jar/war -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-		</plugins>
-	</build>
+	
 
 </project>

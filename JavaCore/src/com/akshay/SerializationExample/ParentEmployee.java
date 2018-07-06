@@ -9,7 +9,9 @@ public class ParentEmployee
 	
 	public String parentClassVariable;
 	
-	
+	public void getMessage(){
+		System.out.println("ParentEmployee :: getMessage() ");
+	}
 	
 	public int getEmployeeId() {
 		return EmployeeId;

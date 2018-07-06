@@ -18,6 +18,19 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
    <servlet-name>jersey-serlvet</servlet-name>
    <url-pattern>/rest/*</url-pattern>
 </servlet-mapping>
- 
+
+<security-constraint>
+	<web-resource-collection> 
+		<url-pattern>/rest/test/get</url-pattern>
+		<http-method>GET</http-method>
+	</web-resource-collection>
+	<auth-constraint>
+		<role-name>admin</role-name>
+	</auth-constraint>
+</security-constraint>
+<login-config>
+	<auth-method>BASIC</auth-method>
+</login-config>
+
 </web-app>
  

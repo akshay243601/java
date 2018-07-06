@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -84,6 +86,8 @@ public class LambdaStream {
 
 		lambdaWithSynchronized();
 
+		sortLambda();
+
 	}
 
 	private static void flatMapOperation() {
@@ -152,35 +156,46 @@ public class LambdaStream {
 																				// IntStream
 		intStream.forEach(x -> System.out.println(x));
 
-		
-		//Way 1
+		// Way 1
 		System.out.println("Map Example :->  Way 1 of map filter ");
 		Map<Student, Set<Book>> studentbookMap = prepareStudentBooksMap();
-			studentbookMap.entrySet(). 
-				stream().                                    
-					map(x -> x.getKey().getBooks()).                  //Stream<Set<Book>> Stream<Set<Book>>
-						flatMap(x -> x.stream())                      //Stream<Book>
-							.map(x -> x.getBookName())               //Stream<String>
-								.filter(x -> x.contains("ook"))       //Stream<String>
-									.distinct()                        //Stream<String>
-										.collect(Collectors.toList())   //List<String>
-											.forEach(x -> System.out.println(x));
-			
-			//OR
+		studentbookMap.entrySet().stream().map(x -> x.getKey().getBooks()). // Stream<Set<Book>>
+																			// Stream<Set<Book>>
+				flatMap(x -> x.stream()) // Stream<Book>
+				.map(x -> x.getBookName()) // Stream<String>
+				.filter(x -> x.contains("ook")) // Stream<String>
+				.distinct() // Stream<String>
+				.collect(Collectors.toList()) // List<String>
+				.forEach(x -> System.out.println(x));
 
-			//Way 2
-			System.out.println("Map Example :->  Way 2 of map filter ");
-			Map<Student, Set<Book>> studentbookMap1 = prepareStudentBooksMap();
-			studentbookMap1.entrySet(). 
-				stream().                                    
-					flatMap(x -> x.getKey().getBooks().stream())     //Stream<Book>                 //Converting Stream<Set<Book>> -> Stream<Book>
-							.map(x -> x.getBookName())               //Stream<String>
-								.filter(x -> x.contains("ook"))       //Stream<String>
-									.distinct()                        //Stream<String>
-										.collect(Collectors.toList())   //List<String>
-											.forEach(x -> System.out.println(x));
+		// OR
 
+		// Way 2
+		System.out.println("Map Example :->  Way 2 of map filter ");
+		Map<Student, Set<Book>> studentbookMap1 = prepareStudentBooksMap();
+		studentbookMap1.entrySet().stream().flatMap(x -> x.getKey().getBooks().stream()) // Stream<Book>
+																							// Converting
+																							// Stream<Set<Book>>
+																							// ->
+																							// Stream<Book>
+				.map(x -> x.getBookName()) // Stream<String>
+				.filter(x -> x.contains("ook")) // Stream<String>
+				.distinct() // Stream<String>
+				.collect(Collectors.toList()) // List<String>
+				.forEach(x -> System.out.println(x));
 
+	}
+
+	private static void sortLambda() {
+		List<Student> studentList = prepareStudentList();
+		List<Book> books = studentList.stream().flatMap(x -> x.getBooks().stream()).sorted(new Comparator<Book>() {
+			@Override
+			public int compare(Book o1, Book o2) {
+				return o1.getBookName().compareTo(o2.getBookName());
+			}
+		}).collect(Collectors.toList());
+
+		books.stream().forEach(x -> System.out.println(x.getBookName()));
 	}
 
 	private static List<Student> prepareStudentList() {
@@ -239,17 +254,17 @@ public class LambdaStream {
 		List<Integer> ss = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
 		List<Integer> result = new ArrayList<Integer>();
 
-		Stream<Integer> stream = ss.parallelStream(); // ss.stream();
-
-		stream.map(s -> {
+		ss.parallelStream().map(s -> {
 			synchronized (result) {
 				if (result.size() < 10) {
 					result.add(s);
 				}
 			}
 			return s;
-		}).forEach(e -> {
+		}).forEach(e -> {System.out.print(e+" ,");
 		});
+		
+		System.out.println();
 		System.out.println(result);
 	}
 
@@ -274,7 +289,7 @@ public class LambdaStream {
 		Arrays.stream(listOfName).filter(x -> x.contains("a")).sorted().forEach(System.out::println);
 
 		System.out.println("Stream Example 7 :->  Find average of even elements starting from 1 to 10 ");
-		IntStream.range(1, 11).filter(x -> x % 2 == 0).map(x -> x * x).average().ifPresent(System.out::println);
+		IntStream.range(1, 5).filter(x -> x % 2 == 0).map(x -> x * x).average().ifPresent(System.out::println);
 
 		System.out.println(
 				"Stream Example 8 :->  Get data from file and print rows whose brand name contains 'a' character");
@@ -320,7 +335,7 @@ public class LambdaStream {
 				System.out.println(
 						"Id : " + string.getKey() + " Values : " + Arrays.asList(string.getValue()).toString());
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
@@ -342,64 +357,104 @@ public class LambdaStream {
 		}
 
 		System.out.println("Stream Example 11 : PART 2 :->  Print occurence of int using lambda");
-		Arrays.stream(new String[] {"a", "b", "c", "a","b"}).collect(Collectors.groupingBy(name -> name, Collectors.counting())).forEach((x,y)-> System.out.println(x + " " + y));
-		
-		//PEEK :-> Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream. 
-		
-		
-		//Peek is used to perform additional action on the stream and if we want to print the current state of element or change the element state etc etc
+		Arrays.stream(new String[] { "a", "b", "c", "a", "b" })
+				.collect(Collectors.groupingBy(name -> name, Collectors.counting()))
+				.forEach((x, y) -> System.out.println(x + " " + y));
+
+		// PEEK :-> Returns a stream consisting of the elements of this stream,
+		// additionally performing the provided action on each element as
+		// elements are consumed from the resulting stream.
+
+		// Peek is used to perform additional action on the stream and if we
+		// want to print the current state of element or change the element
+		// state etc etc
 		System.out.println("Stream Example 12 : Use of PEEK ");
 
-		//It will not print anything as Peek is used to perform addition task and it used for debugging purpose and it works when it return something or we have put some extra function calling on this.
+		// It will not print anything as Peek is used to perform addition task
+		// and it used for debugging purpose and it works when it return
+		// something or we have put some extra function calling on this.
 		System.out.println("With Peek Not Printing anything ");
-		IntStream.of(new int[]{3,2,5,6,7,8,2,1,2}).peek(x-> System.out.println(x));
+		IntStream.of(new int[] { 3, 2, 5, 6, 7, 8, 2, 1, 2 }).peek(x -> System.out.println(x));
 
 		System.out.println("With Peek Returning sum");
-		System.out.println(IntStream.of(new int[]{3,2,5,6,7,8,2,1,2}).peek(x-> System.out.println(x)).sum());
+		System.out
+				.println(IntStream.of(new int[] { 3, 2, 5, 6, 7, 8, 2, 1, 2 }).peek(x -> System.out.println(x)).sum());
 
 		System.out.println("With Peek Add 10 into each elemnt and print");
-		IntStream.of(new int[]{3,2,5,6,7,8,2,1,2}).peek(x-> System.out.println("Peek before map " + x)).map(x-> x + 10).peek(x->{System.out.println("After map " + x);}).forEach(x-> System.out.println("Element Value " + x));
+		IntStream.of(new int[] { 3, 2, 5, 6, 7, 8, 2, 1, 2 }).peek(x -> System.out.println("Peek before map " + x))
+				.map(x -> x + 10).peek(x -> {
+					System.out.println("After map " + x);
+				}).forEach(x -> System.out.println("Element Value " + x));
 
-		
-		System.out.println("Stream Example 13 : Use of PEEK Changes in FOO element. Using peek change replacing a old object Foo with new Foo Object and it doesn't have any impact ");
-		IntStream.range(1, 4)               //IntStream<Integer>
-	    .mapToObj(i -> new Foo("Foo" + i))      //Stream<Foo>
-	    .peek(i -> new Foo("Foo Change value is " + i))     //this line doesn't implact data. and doesn't change any value. because we are creating new object or we can say we are not modifing existing foo object.
-	    .forEach(i -> System.out.println(i.name));		 //will print foo1, foo2, foo3
+		System.out.println(
+				"Stream Example 13 : Use of PEEK Changes in FOO element. Using peek change replacing a old object Foo with new Foo Object and it doesn't have any impact ");
+		IntStream.range(1, 4) // IntStream<Integer>
+				.mapToObj(i -> new Foo("Foo" + i)) // Stream<Foo>
+				.peek(i -> new Foo("Foo Change value is " + i)) // this line
+																// doesn't
+																// implact data.
+																// and doesn't
+																// change any
+																// value.
+																// because we
+																// are creating
+																// new object or
+																// we can say we
+																// are not
+																// modifing
+																// existing foo
+																// object.
+				.forEach(i -> System.out.println(i.name)); // will print foo1,
+															// foo2, foo3
 
-		
-		System.out.println("Stream Example 13 : Use of PEEK Changes in FOO element. Using peek : change foo object name and print");
-		IntStream.range(1, 4)               //IntStream<Integer>
-	    .mapToObj(i -> new Foo("Foo" + i))      //Stream<Foo>
-	    .peek(i -> i.name="Change Value of FOO is " + i.name)     //change value as it is same object.
-	    .forEach(i -> System.out.println(i.name));		 //will print Change Value of FOO is foo1, Change Value of FOO is  foo2, Change Value of FOO is  foo3
+		System.out.println(
+				"Stream Example 13 : Use of PEEK Changes in FOO element. Using peek : change foo object name and print");
+		IntStream.range(1, 4) // IntStream<Integer>
+				.mapToObj(i -> new Foo("Foo" + i)) // Stream<Foo>
+				.peek(i -> i.name = "Change Value of FOO is " + i.name) // change
+																		// value
+																		// as it
+																		// is
+																		// same
+																		// object.
+				.forEach(i -> System.out.println(i.name)); // will print Change
+															// Value of FOO is
+															// foo1, Change
+															// Value of FOO is
+															// foo2, Change
+															// Value of FOO is
+															// foo3
 
-		
-		System.out.println("Stream Example 13 : Use of PEEK Changes in FOO element. Using peek change foo object and add bar into foo element and print bar per foo");
-		IntStream.range(1, 4)               //IntStream<Integer>
-	    .mapToObj(i -> new Foo("Foo" + i))      //Stream<Foo>
-	    .peek(f -> IntStream.range(1, 4)             //changes in Stream<Foo> and adding bar into fee
-	        .mapToObj(i -> new Bar("Bar" + i + " -> " + f.name))     //Stream<Bar>
-	        .forEach(f.bars::add))                                   //print bars and add into foo list
-	    .flatMap(f -> f.bars.stream())                               //creating Stream<Bar>
-	    .forEach(b -> System.out.println(b.name));		              //printing bar
-		
+		System.out.println(
+				"Stream Example 13 : Use of PEEK Changes in FOO element. Using peek change foo object and add bar into foo element and print bar per foo");
+		IntStream.range(1, 4) // IntStream<Integer>
+				.mapToObj(i -> new Foo("Foo" + i)) // Stream<Foo>
+				.peek(f -> IntStream.range(1, 4) // changes in Stream<Foo> and
+													// adding bar into fee
+						.mapToObj(i -> new Bar("Bar" + i + " -> " + f.name)) // Stream<Bar>
+						.forEach(f.bars::add)) // print bars and add into foo
+												// list
+				.flatMap(f -> f.bars.stream()) // creating Stream<Bar>
+				.forEach(b -> System.out.println(b.name)); // printing bar
+
 	}
 }
 
-class Foo {
-    String name;
-    List<Bar> bars = new ArrayList<>();
 
-    Foo(String name) {
-        this.name = name;
-    }
+
+class Foo {
+	String name;
+	List<Bar> bars = new ArrayList<>();
+
+	Foo(String name) {
+		this.name = name;
+	}
 }
 
 class Bar {
-    String name;
+	String name;
 
-    Bar(String name) {
-        this.name = name;
-    }
+	Bar(String name) {
+		this.name = name;
+	}
 }

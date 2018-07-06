@@ -3,6 +3,8 @@ package com.akshay.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.ejb.EJB;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,12 +16,16 @@ public class EJBStatelessController extends HttpServlet {
 
 	// This is mandatory to use EJB
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@EJB
+	StatelessEJB statelessEJB = new StatelessEJB();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) {
 		
-		//@EJB
-		StatelessEJB statelessEJB = new StatelessEJB();
 		try {
 			int i = Integer.parseInt(req.getParameter("number1"));
 			int j = Integer.parseInt(req.getParameter("number2"));

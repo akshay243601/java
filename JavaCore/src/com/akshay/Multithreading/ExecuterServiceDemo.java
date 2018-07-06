@@ -2,6 +2,7 @@ package com.akshay.Multithreading;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +16,9 @@ public class ExecuterServiceDemo {
 		Thread validationService = new Thread(new Service1("ValidationService", 1000));
 
 		try {
-			executerService.execute(cacheService);
+			
+			
+			executerService.execute(cacheService);   
 			executerService.execute(alertService);
 			executerService.execute(validationService);
 			System.out.println("Before Shutdown");

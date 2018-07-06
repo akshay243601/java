@@ -2,7 +2,7 @@ package com.akshay.ejbBeans;
 
 import javax.ejb.Stateless;
 
-//@Stateless
+@Stateless
 public class StatelessEJB {
 
 	private int i, j, k;

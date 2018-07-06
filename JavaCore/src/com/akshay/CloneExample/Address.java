@@ -1,6 +1,5 @@
 package com.akshay.CloneExample;
 
-import java.io.Serializable;
 
 public class Address
 {

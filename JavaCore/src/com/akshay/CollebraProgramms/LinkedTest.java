@@ -1,24 +1,9 @@
 package com.akshay.CollebraProgramms;
 
-import java.lang.ref.PhantomReference;
-import java.lang.ref.WeakReference;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map.Entry;
-
-import javax.xml.soap.Node;
-import javax.xml.soap.SOAPElement;
-import javax.xml.soap.SOAPException;
-
-import org.w3c.dom.DOMException;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.UserDataHandler;
-
-
 
 class Person {
 	public int Id;
@@ -28,23 +13,21 @@ class Person {
 		this.Id = id;
 		this.Name = name;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return this.Id;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
-		Person emp = (Person)obj;
+		Person emp = (Person) obj;
 		return this.Name.equals(emp.Name);
 	}
 }
 
-public class LinkedTest 
-{
-	public static void main(String args[])
-	{	
+public class LinkedTest {
+	public static void main(String args[]) {
 		LinkedList<String> ls = new LinkedList<String>();
 		ls.add("X");
 		ls.add("Y");
@@ -53,13 +36,13 @@ public class LinkedTest
 		ls.add("B");
 		ls.add("C");
 		ls.add("D");
-		
+
 		for (String string : ls) {
 			System.out.println(string);
 		}
-		
+
 		LinkedHashSet<String> list = new LinkedHashSet<String>();
-	
+
 		list.add("Akshay");
 		list.add("Karan");
 		list.add("Priyanka");
@@ -69,21 +52,21 @@ public class LinkedTest
 		list.add("Shikha");
 		list.add("Priyanka");
 		list.add("Sadhana");
-		
+
 		for (String string : list) {
 			System.out.println(string);
 		}
-		
-		LinkedHashMap<String, Integer> linkedMap = new LinkedHashMap<String,Integer>();
+
+		LinkedHashMap<String, Integer> linkedMap = new LinkedHashMap<String, Integer>();
 		linkedMap.put("Akshay", 1);
 		linkedMap.put("Karan", 10);
 		linkedMap.put("Sahil", 12);
 		linkedMap.put("Prem", 32);
-		linkedMap.put("Karan", 45);		
-		for (Entry<String,Integer> entry : linkedMap.entrySet()) {
+		linkedMap.put("Karan", 45);
+		for (Entry<String, Integer> entry : linkedMap.entrySet()) {
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
-		
+
 		LinkedList<Person> linkedList = new LinkedList<Person>();
 		linkedList.add(new Person(809, "Akshay"));
 		linkedList.add(new Person(801, "Karan"));
@@ -108,7 +91,8 @@ public class LinkedTest
 		linkedHashMap.put(new Person(809, "Guru"), "Guru");
 
 		for (Entry<Person, String> entry : linkedHashMap.entrySet()) {
-			System.out.println(((Person)entry.getKey()).Id + " " + ((Person)entry.getKey()).Name  + " : " + entry.getValue());
+			System.out.println(
+					((Person) entry.getKey()).Id + " " + ((Person) entry.getKey()).Name + " : " + entry.getValue());
 		}
 
 	}

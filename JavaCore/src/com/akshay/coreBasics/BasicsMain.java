@@ -290,7 +290,54 @@ public class BasicsMain extends ParentClass {
 		System.out.println("String impl..");
 	}
 
+	static void customSort1(int[] arr) {
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i : arr) {
+			if (!map.containsKey(i)) {
+				map.put(i, 0);
+			}
+			int counter = map.get(i) + 1;
+			map.put(i, counter);
+		}
+
+		Map<Integer, Set<Integer>> mapOfInts = new TreeMap<Integer, Set<Integer>>();
+		for (Entry<Integer, Integer> val : map.entrySet()) {
+			if (!mapOfInts.containsKey(val.getValue())) {
+				mapOfInts.put(val.getValue(), new TreeSet<Integer>());
+			}
+			mapOfInts.get(val.getValue()).add(val.getKey());
+		}
+
+		for (Entry<Integer, Set<Integer>> countedValues : mapOfInts.entrySet()) {
+			for (Integer i : countedValues.getValue()) {
+				for (int l = 0; l < countedValues.getKey(); l++) {
+					System.out.println(i);
+				}
+			}
+		}
+
+	}
+
+	// We can not use "wait" with in static block
+	/*
+	 * public static void testSync(){ synchronized ("") { try { wait(); } catch
+	 * (InterruptedException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } } }
+	 */
+
 	public static void main(String args[]) {
+
+		String ssss1 = "Hello";
+		String sss1 = ssss1.intern();
+		System.out.println(ssss1 == sss1);
+
+		String ssss2 = new String("Hello");
+		String sss2 = ssss2.intern();
+
+		System.out.println(ssss2 == sss2); // false
+		System.out.println(sss2 == sss1); // true
+
+		customSort1(new int[] { 18, 15, 5, 15, 5, 8, 15, 1, 1, 4, 4 });
 
 		String s11 = new String("A");
 		String s21 = String.valueOf(s11);
@@ -339,6 +386,8 @@ public class BasicsMain extends ParentClass {
 			System.out.println(e);
 			System.out.println("Tree Set can't have null value");
 		}
+
+		System.out.println("checkFinallyWithReturn : " + checkFinallyWithReturn());
 
 		method(null);
 		String s1 = "Sachin";
@@ -494,6 +543,17 @@ public class BasicsMain extends ParentClass {
 		// of final object. But if u want to change the attribute value then u
 		// can change
 		// objjj = new BasicsMain(); CT Error
+	}
+
+	private static int checkFinallyWithReturn() {
+		try {
+			return 1;
+		} catch (Exception e) {
+			return 2;
+		} finally {
+			return 3;
+		}
+		// return 4;
 	}
 
 	public static boolean doOverlap(Point l1, Point r1, Point l2, Point r2) {
