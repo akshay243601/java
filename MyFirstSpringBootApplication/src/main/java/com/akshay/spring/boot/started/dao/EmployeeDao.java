@@ -5,22 +5,24 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.akshay.spring.boot.started.entity.User;
+import com.akshay.spring.boot.started.entity.UserItem;
 import com.akshay.spring.boot.started.respository.EmployeeRepository;
+import com.akshay.spring.boot.started.respository.ItemRepository;
 
 @Repository
 public class EmployeeDao {
 
 	@Autowired
 	private EmployeeRepository employeeRespository;
-	public static List<User> users = null;
-	static {
-		users = new ArrayList<>(Arrays.asList(new User(1, "Akshay", "MALE"), new User(2, "Rachit", "MALE"),
-				new User(3, "Sameer", "MALE")));
-	}
+
+	@Autowired
+	private ItemRepository itemRespository;
 
 	public List<User> listUsers() {
 
@@ -48,11 +50,15 @@ public class EmployeeDao {
 	public User findUser(int id) {
 		return employeeRespository.findOne(id);
 	}
+	
+	public User findUserByName(String name) {
+		return employeeRespository.findByName(name);
+	}
 
 	public boolean updateUser(User user, int id) {
 		try {
 			User userObj = employeeRespository.findOne(id);
-			if(userObj != null){
+			if (userObj != null) {
 				userObj.setGender(user.getGender());
 				userObj.setName(user.getName());
 			} else {
@@ -62,5 +68,9 @@ public class EmployeeDao {
 			return false;
 		}
 		return true;
+	}
+
+	public List<UserItem> findItemsByUserName(String userName) {
+		return itemRespository.findByUserName(userName);
 	}
 }

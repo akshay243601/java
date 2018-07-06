@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.akshay.spring.boot.started.dao.EmployeeDao;
 import com.akshay.spring.boot.started.entity.User;
-
+import com.akshay.spring.boot.started.entity.UserItem;
 
 @Service
 public class EmployeeService {
 
 	@Autowired
 	private EmployeeDao employeeDao;
-	
+
 	public List<User> listUsers() {
 		return employeeDao.listUsers();
 	}
@@ -23,6 +23,10 @@ public class EmployeeService {
 		return employeeDao.findUser(id);
 	}
 	
+	public User findUserByName(String name) {
+		return employeeDao.findUserByName(name);
+	}
+
 	public boolean addUser(User user) {
 		return employeeDao.addUser(user);
 	}
@@ -31,5 +35,8 @@ public class EmployeeService {
 		return employeeDao.updateUser(user, id);
 	}
 
+	public List<UserItem> findItemsByUserName(String userName) {
+		return employeeDao.findItemsByUserName(userName);
+	}
 
 }
