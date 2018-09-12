@@ -1,12 +1,13 @@
-package com.akshay.entity;
+package com.akshay.entity.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.akshay.entity.EmpAddress;
+
 @Configuration
 public class BeanConfiguration {
 
-	@Bean
 	public EmpAddress getEmpAddress1() {
 		return new EmpAddress();
 	}

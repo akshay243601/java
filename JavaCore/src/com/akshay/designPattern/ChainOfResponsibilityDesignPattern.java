@@ -102,10 +102,6 @@ public class ChainOfResponsibilityDesignPattern {
 		DispenserChain chain10 = new Dollar10$Dispenser();
 		chain50.nextDispense(chain20);
 		chain20.nextDispense(chain10);
-		
 		chain50.dispense(new Currency(2040));
-
-		
 	}
-
 }

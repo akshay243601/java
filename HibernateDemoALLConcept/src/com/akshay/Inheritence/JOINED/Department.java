@@ -6,10 +6,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="DepartmentJOINED")
-@PrimaryKeyJoinColumn(name="EmployeeId")
-public class Department extends SubEmployee
-{
+@Table(name = "DepartmentJOINED")
+@PrimaryKeyJoinColumn(name = "EmployeeId")
+public class Department extends SubEmployee {
 	private String DepartmentName;
 
 	public String getDepartmentName() {
@@ -19,5 +18,5 @@ public class Department extends SubEmployee
 	public void setDepartmentName(String departmentName) {
 		DepartmentName = departmentName;
 	}
-	
+
 }

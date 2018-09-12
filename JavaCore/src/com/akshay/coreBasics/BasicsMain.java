@@ -17,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 class ParentClass {
+
 	public static int x = 10;
 
 	public ParentClass() {
@@ -325,8 +326,35 @@ public class BasicsMain extends ParentClass {
 	 * e.printStackTrace(); } } }
 	 */
 
+	static{
+		
+		int x = 5;
+	}
+	
+	static int x, y;
+	
+	private static void method(){
+		y=x++;
+		y= y + ++x;  //(-1 + 1) = 0, x=1; 
+	}
+	
 	public static void main(String args[]) {
-
+		System.out.println("start");
+		
+		System.out.println(Integer.MAX_VALUE + 2);
+		
+		List l  = new ArrayList<>();
+		for(int i =0; i<Integer.MAX_VALUE; i++)
+			l.add(0);
+		l.add(0);
+		l.add(1);
+		System.out.println(l.size());
+		
+		
+		x--;    //x = -1
+		method();  //y=0 , x=1;
+		System.out.println(x + y +	++x);
+		
 		String ssss1 = "Hello";
 		String sss1 = ssss1.intern();
 		System.out.println(ssss1 == sss1);

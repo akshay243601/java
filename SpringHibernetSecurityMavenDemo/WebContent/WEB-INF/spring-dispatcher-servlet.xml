@@ -31,6 +31,7 @@ http://www.springframework.org/schema/aop/spring-aop-4.0.xsd" >
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
 	<mvc:annotation-driven />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

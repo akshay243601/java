@@ -56,5 +56,7 @@
 		<!-- Mapping for Transaction Propogation Related Class  -->		
 		<mapping class="com.akshay.transactionPropogation.Employee"/>
 		
+		<mapping class="com.akshay.dirryDataCheck.Employee"/>
+		
 	</session-factory>
 </hibernate-configuration>

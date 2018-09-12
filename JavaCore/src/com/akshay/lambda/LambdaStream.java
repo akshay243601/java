@@ -1,11 +1,10 @@
 package com.akshay.lambda;
 
-import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -78,7 +76,7 @@ class Book {
 
 public class LambdaStream {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		streamOperationLikeFilterSortedMapFileReadingPrepareMap();
 
@@ -120,7 +118,9 @@ public class LambdaStream {
 		Stream<String[]> arrayStream = Arrays.stream(array);
 
 		System.out.println("Print using normal filter : NO FLAT MAP");
-		// arrayStream.forEach(System.out::println);
+
+		// Nothing will return because here data will be compare for 'String[]'
+		// with 'a' which always return false. So for this we will use flatMap
 		arrayStream.filter(x -> x.equals("a")).forEach(System.out::println);
 		arrayStream.close();
 
@@ -261,14 +261,18 @@ public class LambdaStream {
 				}
 			}
 			return s;
-		}).forEach(e -> {System.out.print(e+" ,");
+		}).forEach(e -> {
+			System.out.print(e + " ,");
 		});
-		
+
 		System.out.println();
 		System.out.println(result);
 	}
+	
 
 	private static void streamOperationLikeFilterSortedMapFileReadingPrepareMap() {
+	
+		
 		System.out.println("Stream Example 1 :-> ");
 		IntStream.range(1, 10).forEach(System.out::println);
 
@@ -285,7 +289,7 @@ public class LambdaStream {
 		IntStream.range(1, 10).map(x -> x + 10).forEach(System.out::println);
 
 		System.out.println("Stream Example 6 :-> ");
-		String listOfName[] = { "Akshay", "Akash", "Sunil", "Sudhir", "Akash" };
+		String[] listOfName = { "Akshay", "Akash", "Sunil", "Sudhir", "Akash" };
 		Arrays.stream(listOfName).filter(x -> x.contains("a")).sorted().forEach(System.out::println);
 
 		System.out.println("Stream Example 7 :->  Find average of even elements starting from 1 to 10 ");
@@ -312,8 +316,7 @@ public class LambdaStream {
 		try {
 			rows = Files.lines(Paths
 					.get("D:/Personnel/Git-Repository/Git-Java/java/JavaCore/src/com/akshay/lambda/voterList.csv"));
-			rows.skip(1).map(x -> x.split(",")).filter(x -> x.length == 5)
-					.filter(x -> Integer.parseInt(x[2].toString()) > 15)
+			rows.skip(1).map(x -> x.split(",")).filter(x -> x.length == 5).filter(x -> Integer.parseInt(x[2]) > 15)
 					.forEach(x -> System.out.println("Id : " + x[0] + " Name : " + x[1] + " Age " + x[2]));
 		} catch (Exception e) {
 			System.out.println(e);
@@ -328,7 +331,7 @@ public class LambdaStream {
 			rows = Files.lines(Paths
 					.get("D:/Personnel/Git-Repository/Git-Java/java/JavaCore/src/com/akshay/lambda/voterList.csv"));
 			Map<Integer, String[]> map = rows.skip(1).map(x -> x.split(",")).filter(x -> x.length == 5)
-					.filter(x -> Integer.parseInt(x[2].toString()) > 15)
+					.filter(x -> Integer.parseInt(x[2]) > 15)
 					.collect(Collectors.toMap(x -> Integer.parseInt(x[0]), x -> x));
 
 			for (Entry<Integer, String[]> string : map.entrySet()) {
@@ -436,11 +439,26 @@ public class LambdaStream {
 												// list
 				.flatMap(f -> f.bars.stream()) // creating Stream<Bar>
 				.forEach(b -> System.out.println(b.name)); // printing bar
+		
+		
+		
+		
+		//Use of Reduce
+		List<BigInteger> ints = new ArrayList<BigInteger>();
+		ints.add(new BigInteger("1"));
+		ints.add(new BigInteger("2"));
+		ints.add(new BigInteger("3"));
+		ints.add(new BigInteger("4"));
+		ints.add(new BigInteger("5"));
+		ints.add(new BigInteger("6"));
+		ints.add(new BigInteger("7"));
+		ints.add(new BigInteger("8"));
+		ints.add(new BigInteger("9"));
+		ints.add(new BigInteger("10"));
+		System.out.println(ints.stream().reduce(BigInteger.ZERO, BigInteger::add).intValue());
 
 	}
 }
-
-
 
 class Foo {
 	String name;

@@ -25,9 +25,8 @@ public class DefaultAndStaticInterfaceDemo
 		
 		InterfaceWithDefaultAndStaticMethod.staticMethod();
 		InterfaceWithDefaultAndStaticMethod1.staticMethod();
-
-	}
-
+		
+	}	
 }
 
 @FunctionalInterface

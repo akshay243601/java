@@ -13,16 +13,23 @@ public class ArrangeArrayWithOddNumberComesFirst {
 				lastIndexOfOddNumber++;
 			}
 		}
-
 		return arr;
 	}
 
 	public static void main(String args[]) {
-		int arr[] = new int[] { 10, 4, 6, 7, 5, 3, 2, 4, 17, 8, 9, 124 ,1,1,1,1,1,1,1,1,1};
+		int arr[] = new int[] { 10, 4, 6, 7, 5, 3, 2, 4, 17, 8, 9, 124, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 		rearrangeArrayWithOddComesFirst(arr);
 		System.out.println(arr.toString());
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
+		
+		StringBuilder platforms = new StringBuilder("IPTV|iPOV|iops|");
+	
+		if(platforms.lastIndexOf("|") == platforms.length()-1) {
+			platforms.deleteCharAt(platforms.lastIndexOf("|"));
+		}
+		System.out.println(platforms.toString());
+		
 	}
 }
