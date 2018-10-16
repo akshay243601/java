@@ -1,6 +1,6 @@
 Project Details and Assumption:-
 1) I am assuming files are stored at the server and application is deployed on Server. So i am assuming we will give the file path (eg: C:/abc/as/test.txt)
-2) I am using spring boot and maven.
+2) I am using spring boot and maven. As i am using springboot ,so no need of separate tomcat.
 3) files path will be given in array form.
 
 Sample URL : http://localhost:8080/word/findCommonWord?files=C:/Users/guptaakshay/Desktop/demo/f1.txt,C:/Users/guptaakshay/Desktop/demo/f2.txt, C:/Users/guptaakshay/Desktop/demo/f3.txt
