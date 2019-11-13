@@ -11,11 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SimpleThreadPool {
 	// Count of threadpools created
     private static AtomicInteger poolCount = new AtomicInteger(0);	
-    ConcurrentLinkedQueue<Runnable> queue = new ConcurrentLinkedQueue<Runnable>();
-	AtomicBoolean active = new AtomicBoolean(true);
-	private List<SimpleThreadPoolThread> threads = new LinkedList<SimpleThreadPool.SimpleThreadPoolThread>();
-	
-	
+    ConcurrentLinkedQueue<Runnable> queue =null;
+	AtomicBoolean active = null;
+	private List<SimpleThreadPoolThread> threads = null;
 	
 	
 	//Work for a thread
@@ -45,7 +43,9 @@ public class SimpleThreadPool {
 	
 	public SimpleThreadPool(int threadCount) {
 		this.poolCount.incrementAndGet();
-		this.active.set(Boolean.TRUE);
+	    queue = new ConcurrentLinkedQueue<Runnable>();
+		active = new AtomicBoolean(true);
+		threads = new LinkedList<SimpleThreadPool.SimpleThreadPoolThread>();
 		for(int i = 0; i < threadCount; i++) {
 			SimpleThreadPoolThread thread = new SimpleThreadPoolThread("SimpleThreadPoolThread " + i,   this.active, this.queue);
 			thread.start();
@@ -75,10 +75,4 @@ public class SimpleThreadPool {
 	public void stop() {
 		this.active.set(Boolean.FALSE);
 	}
-
-
-	
-	
-
-	
 }
