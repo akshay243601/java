@@ -9,7 +9,6 @@ public class PostfixExpressionEvaluation {
 	}
 
 	private static int getPostFixValue(String exp) {
-		// TODO Auto-generated method stub
 		Stack<Integer> stack = new Stack<>();
 		for (char c : exp.toCharArray()) {
 			if (Character.isDigit(c)) {
