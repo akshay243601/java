@@ -24,7 +24,7 @@ public class BinaryTree {
 		return search(root, value);
 	}
 
-	private boolean search(TreeNode node, int value) {
+	public boolean search(TreeNode node, int value) {
 		if (node == null) {
 			return false;
 		}
@@ -45,7 +45,7 @@ public class BinaryTree {
 		}
 		return false;
 	}
-	
+
 	public int getCount(){
 		return getCount(root);
 	}
@@ -58,11 +58,11 @@ public class BinaryTree {
 		return 1+getCount(node.left) + getCount(node.right);
 	}
 	
-	private void inOrderTraverse(){
+	public void inOrderTraverse(){
 		printInOrderTraverse(root);
 	}
 
-	private void printInOrderTraverse(TreeNode node) {
+	public void printInOrderTraverse(TreeNode node) {
 	
 		if(node == null)
 			return;
@@ -75,11 +75,11 @@ public class BinaryTree {
 
 	}
 
-	private void postOrderTraverse(){
+	public void postOrderTraverse(){
 		printPostOrderTraverse(root);
 	}
 
-	private void printPostOrderTraverse(TreeNode node) {
+	public void printPostOrderTraverse(TreeNode node) {
 	
 		if(node == null)
 			return;
@@ -88,12 +88,12 @@ public class BinaryTree {
 		printPostOrderTraverse(node.right);
 		System.out.print(node.data + " ");
 	}
-	
-	private void preOrderTraverse(){
+
+	public void preOrderTraverse(){
 		printPreOrderTraverse(root);
 	}
 
-	private void printPreOrderTraverse(TreeNode node) {
+	public void printPreOrderTraverse(TreeNode node) {
 	
 		if(node == null)
 			return;
@@ -107,8 +107,8 @@ public class BinaryTree {
 	public void printTree(){
 		printTree(root);
 	}
-	
-	private void printTree(TreeNode node){
+
+	public void printTree(TreeNode node){
 		if(node == null){
 			return;
 		}

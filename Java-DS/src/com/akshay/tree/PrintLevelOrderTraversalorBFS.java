@@ -1,6 +1,8 @@
 package com.akshay.tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /*
@@ -68,6 +70,52 @@ public class PrintLevelOrderTraversalorBFS {
 		
 		System.out.println();
 		printLevelOrderTraversal(root);
+
+		System.out.println("TOP TO BOTTOM LEVEL ORDER");
+		boolean isTopToBottom = true;
+		System.out.println(levelOrderWithResponseAsList(root, isTopToBottom));
+
+
+		System.out.println("BOTTOM TO TOP LEVEL ORDER");
+		isTopToBottom = false;
+		System.out.println(levelOrderWithResponseAsList(root, isTopToBottom));
+
+	}
+
+
+
+
+	public static List<List<Integer>> levelOrderWithResponseAsList(TreeNode root, boolean isTopToBottom) {
+		List<List<Integer>> result = new ArrayList<>();
+		if(root != null) {
+			Queue<TreeNode> queue = new LinkedList<>();
+			queue.add(root);
+
+			while(!queue.isEmpty()) {
+				int size = queue.size();
+				List<Integer> levelList = null;
+				levelList = new ArrayList<>();
+				while(size > 0) {
+					TreeNode node = queue.poll();
+					levelList.add(node.data);
+
+					if(node.left != null) {
+						queue.add(node.left);
+					}
+
+					if(node.right != null) {
+						queue.add(node.right);
+					}
+					size--;
+				}
+				if(isTopToBottom) {
+					result.add(levelList);
+				} else {
+					result.add(0, levelList);
+				}
+			}
+		}
+		return result;
 	}
 
 }
