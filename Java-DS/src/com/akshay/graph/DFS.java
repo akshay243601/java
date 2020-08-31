@@ -20,9 +20,9 @@ public class DFS {
 		}
 	}
 
+	// Its mostly simmiliar to Tree Level order treversal [If we replace stack with queue]
 	private void dfsWithStack(Vertex rootVertex) {
 		this.stack.push(rootVertex);
-		rootVertex.setVisited(true);
 		while (!stack.isEmpty()) {
 			Vertex actualVertex = this.stack.pop();
 			System.out.println(actualVertex.getName() + "  ");

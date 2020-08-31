@@ -17,7 +17,6 @@ public class CountNegativeIntegersInRowColumnWiseSortedMatrix {
 			} else {
 				negativeNumber = negativeNumber + col + 1;
 				row++;
-				// col--;
 			}
 
 		}

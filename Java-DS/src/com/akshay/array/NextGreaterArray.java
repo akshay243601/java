@@ -23,10 +23,8 @@ public class NextGreaterArray {
                 if(next < element) {
                     stack.push(element);
                 }
-
             }
             stack.push(next);
-
         }
 
         while (!stack.isEmpty()) {
@@ -37,11 +35,7 @@ public class NextGreaterArray {
 
     public static void main(String[] args) {
         printNextGreaterArray(new int[]{1,2,3,4,5});
-
-
         System.out.println();
         printNextGreaterArray(new int[]{5,4,3,2,5});
-
-
     }
 }

@@ -23,15 +23,11 @@ public class BFS {
 
 	private void bfsVisited(Vertex vertex) {
 		queue.add(vertex);
-
 		while (!queue.isEmpty()) {
 			Vertex actualVertex = queue.poll();
 			System.out.print(actualVertex.getName() + " ");
 			for (Vertex v : queue) {
 				if (!v.isVisited()) {
-					
-					
-					
 					v.setVisited(true);
 					queue.add(v);
 				}
