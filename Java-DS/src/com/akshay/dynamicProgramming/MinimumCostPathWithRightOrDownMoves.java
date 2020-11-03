@@ -1,6 +1,4 @@
-package com.akshay;
-
-import java.util.concurrent.ExecutionException;
+package com.akshay.dynamicProgramming;
 
 public class MinimumCostPathWithRightOrDownMoves {
 
@@ -44,7 +42,7 @@ public class MinimumCostPathWithRightOrDownMoves {
 
     
     
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args)  {
        int[][] matrix =
                 {
                         {1,42,33},
