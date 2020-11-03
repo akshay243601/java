@@ -13,7 +13,7 @@ public class RedisCacheService {
         return null;
     }
 
-    @CachePut(value = "Client_Subcriptions", key = "#clientId")
+    @CachePut(value = "#Client_Subcriptions", key = "#clientId")
     public void putClientSubscription(String clientId, ClientSubscriptions clientSubscriptions) {
     }
 

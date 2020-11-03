@@ -8,6 +8,7 @@ import com.java.notification.model.NotificationEventRequest;
 import com.java.notification.model.NotificationType;
 import com.java.notification.model.SubscriptionDetail;
 import com.java.notification.service.ProducerService;
+import com.java.notification.utils.RedisUtility;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -50,8 +51,7 @@ public class Runner implements CommandLineRunner {
         platinum.setSmsCount(Long.MAX_VALUE);
         platinum.setPushCount(Long.MAX_VALUE);
         platinum.setSubscriptionPrice("500$");
-
         subscriptionDetailDao.saveAll(Arrays.asList(silver, gold, platinum));
-    }
+   }
 
 }
