@@ -1,92 +1,54 @@
 package com.akshay.t9Dictionary;
 
-import com.sun.deploy.util.StringUtils;
 
-import java.sql.Struct;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
-// MS Interview Question
-// There is a file which Store all the words. We have to find out if we enter any integers digits (eg. 123), it should return the data found in file for this integer(123)
+/*  MS Interview Question
+    Source : https://www.youtube.com/watch?v=imD5XeNaJXA
+*/
 public class T9Dictionary {
+    public static String[] num_chars = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
-    static List<String> fileWords = new ArrayList<>();
-    static Map<Character, Integer> mapping = new HashMap<>();
-    static Map<String, TreeSet<String>> dictionary = new HashMap<>();
-
-    static {
-        mapping.put('0', 0);
-        mapping.put('1', 1);
-        mapping.put('a', 2);
-        mapping.put('b', 2);
-        mapping.put('c', 2);
-        mapping.put('d', 3);
-        mapping.put('e', 3);
-        mapping.put('f', 3);
-        mapping.put('g', 4);
-        mapping.put('h', 4);
-        mapping.put('i', 4);
-        mapping.put('j', 5);
-        mapping.put('k', 5);
-        mapping.put('l', 5);
-        mapping.put('m', 6);
-        mapping.put('n', 6);
-        mapping.put('o', 6);
-        mapping.put('p', 7);
-        mapping.put('q', 7);
-        mapping.put('r', 7);
-        mapping.put('s', 7);
-        mapping.put('t', 8);
-        mapping.put('u', 8);
-        mapping.put('v', 8);
-        mapping.put('w', 9);
-        mapping.put('x', 9);
-        mapping.put('y', 9);
-        mapping.put('z', 9);
-
-        readDataFromFile();
-        prepareDictionary();
-    }
-
-    private static void readDataFromFile() {
-        fileWords.add("abc");
-        fileWords.add("aaa");
-        fileWords.add("adc");
-        fileWords.add("akshay");
-        fileWords.add("gupta");
-        fileWords.add("watsapp");
-        fileWords.add("facebook");
-        fileWords.addAll(Arrays.asList("a", "b", "rocky"));
-    }
-
-    private static void prepareDictionary(){
-        for(String word : fileWords) {
-            addWordIntoDictionary(word);
+    private static List<String> getAllWords(String number) {
+        LinkedList<String> words = new LinkedList<>();
+        if(null == number || number.length() == 0) {
+            return words;
         }
-    }
 
-    private static void addWordIntoDictionary(String word) {
-        if(word != null && word.length() > 0) {
-            String numStr = "";
-            for(int i = 0; i < word.length(); i++) {
-                numStr = numStr + mapping.get(word.charAt(i));
+
+        words.add("");
+
+        //Ex: num : "23", So loop will be for {2, 3}
+        for(int i = 0; i < number.length(); i++) {
+
+            // ex: 12 , --> for 1 its length only 1 and it will only store in words :-> "a", "b", "c"
+            // Once its length is 2 i.e. "12" then it will removed "1" from words and append "a" with "d,e,f" (3)
+            while(words.peek().length() == i) {
+                String str = words.remove();
+
+                //num present in input param "number"  | number.charAt(i)
+                int num = Character.getNumericValue(number.charAt(i));  // "2" or "3" number from input param (numbers)
+
+                //for 2 --> {abc} and for 3 --> {def}
+                String charsPresentInDictionaryAtNumber = num_chars[num]; // {a,b,c}
+
+                //{"a", "b", "c"}
+                for(char ch : charsPresentInDictionaryAtNumber.toCharArray()) {
+                    words.add(str + ch);
+                }
             }
-            if(!dictionary.containsKey(numStr)) {
-                dictionary.put(numStr, new TreeSet<>());
-            }
-            dictionary.get(numStr).add(word);
         }
+        return words;
     }
 
-    private static Set<String> printTheWords(String number) {
-        if(number == null || number.trim().length() == 0) {
-            return null;
-        }
-        return dictionary.get(number);
-    }
 
     public static void main(String[] args) {
-        System.out.println(printTheWords("222"));
-        System.out.println(printTheWords("2"));
+        System.out.println(getAllWords("222"));
+//        System.out.println(getAllWords("234"));
+//        System.out.println(getAllWords("273"));
+//        System.out.println(getAllWords("23544"));
+
     }
 }
 

@@ -1,12 +1,14 @@
 package com.akshay.array;
 
+// MS:  Remove duplicates and keep the list unique from a Sorted Array
 public class RemoveDuplicateFromSortedArray {
 
     private static void removeDuplicateFromSortedArray(int[] a) {
+        System.out.println();
         System.out.println("Before Removing duplicate");
         printArray(a, a.length);
         int j = 0;
-        int i = 0;
+        int i;
         for(i = 0; i < a.length-1; i++) {
             if(a[i] != a[i+1]) {
                 a[j] = a[i];
