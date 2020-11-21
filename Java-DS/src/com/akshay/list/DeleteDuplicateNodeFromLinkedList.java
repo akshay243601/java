@@ -2,7 +2,6 @@ package com.akshay.list;
 
 class LinkedList4 {
 	static Node head;
-	public int x = 0;
 
 	static class Node {
 		Node next;
@@ -22,7 +21,7 @@ class LinkedList4 {
 		 */
 		while (node != null && node.next != null) {
 			if (node.data == node.next.data) {
-				System.out.print(node.data + " ");
+			//	System.out.print(node.data + " ");
 
 				/*
 				 * if We found any duplicate node then we can delete any one

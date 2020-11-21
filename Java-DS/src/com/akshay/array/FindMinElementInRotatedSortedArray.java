@@ -14,33 +14,61 @@ public class FindMinElementInRotatedSortedArray {
         return smallestElement(nums, 0, nums.length-1);
     }
 
-
     private static int smallestElement(int[] nums, int start, int end) {
         if(start >= end) {
             return nums[end];
         }
-
         int middle = (end + start)/2;
-        if(nums[start] > nums[end]) {
-            if(nums[start] > nums[middle]) {
-                return smallestElement(nums, start, middle);
-            } else {
-                return smallestElement(nums, middle + 1, end);
-            }
-        } else {
-            if(nums[end] > nums[middle]) {
-                return smallestElement(nums, start, middle);
-            } else {
-                return smallestElement(nums, middle + 1, end);
-            }
+
+        // Check if element (mid+1) is minimum element. Consider
+        // the cases like {3, 4, 5, 1, 2}
+        if(middle < end && nums[middle] > nums[middle + 1]) {
+            return nums[middle + 1];
         }
+
+        // Check if mid itself is minimum element
+        if(start < middle && nums[middle] < nums[middle-1]) {
+            return nums[middle];
+        }
+
+        // Decide whether we need to go to left half or right half
+        if(nums[end] > nums[middle]) {
+            return smallestElement(nums, start, middle-1);
+        } else {
+            return smallestElement(nums, middle + 1, end);
+        }
+
+
+//        if(nums[start] > nums[end]) {
+//            if(nums[start] > nums[middle]) {
+//                return smallestElement(nums, start, middle);
+//            } else {
+//                return smallestElement(nums, middle + 1, end);
+//            }
+//        } else {
+//            if(nums[end] > nums[middle]) {
+//                return smallestElement(nums, start, middle);
+//            } else {
+//                return smallestElement(nums, middle + 1, end);
+//            }
+//        }
+
+
+
+
     }
 
     public static void main(String[] args) {
         System.out.println(findMin(new int[]{1,2,3}));
         System.out.println(findMin(new int[]{0,1,2,3}));
         System.out.println(findMin(new int[]{8,9,10,1,2,3,4,6,7}));
-        System.out.println(findMin(new int[]{8,9,10,7}));
+        System.out.println(findMin(new int[]{8,9,10,1, 2}));
+        System.out.println(findMin(new int[]{1,2,3,4,5,6,7,8}));
+        System.out.println(findMin(new int[]{2,3,4,5,6,1}));
+        System.out.println(findMin(new int[]{8,9,10,1, 2,4,5,6,7}));
+        System.out.println(findMin(new int[]{7, 18, 26, 6}));
+        System.out.println(findMin(new int[]{11,11,12,1,1,3,4,4,5,6,7,9,10}));
+        System.out.println(findMin(new int[]{1}));
 
     }
 }

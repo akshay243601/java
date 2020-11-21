@@ -74,6 +74,7 @@ public class PathToNodeInBST {
 		isPath = false;
 		pathToNode(root, 19);
 		System.out.println(path);
+
 	}
 
 }

@@ -26,7 +26,7 @@ public class BFS {
 		while (!queue.isEmpty()) {
 			Vertex actualVertex = queue.poll();
 			System.out.print(actualVertex.getName() + " ");
-			for (Vertex v : queue) {
+			for (Vertex v : actualVertex.getNeighbour()) {
 				if (!v.isVisited()) {
 					v.setVisited(true);
 					queue.add(v);

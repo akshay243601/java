@@ -18,12 +18,11 @@ class LinkedList8 {
 		reversedLinkedList.head = null;
 
 		Node node = head;
-		Node temp = null;
 		while (node != null) {
 
-			temp = new Node(node.data);
-			temp.next=reversedLinkedList.head;
-			reversedLinkedList.head=temp;
+			Node newNode = new Node(node.data);
+			newNode.next = reversedLinkedList.head;
+			reversedLinkedList.head = newNode;
 
 			node = node.next;
 		}
