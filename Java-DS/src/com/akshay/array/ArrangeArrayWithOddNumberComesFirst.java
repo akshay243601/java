@@ -23,13 +23,5 @@ public class ArrangeArrayWithOddNumberComesFirst {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
-		
-		StringBuilder platforms = new StringBuilder("IPTV|iPOV|iops|");
-	
-		if(platforms.lastIndexOf("|") == platforms.length()-1) {
-			platforms.deleteCharAt(platforms.lastIndexOf("|"));
-		}
-		System.out.println(platforms.toString());
-		
 	}
 }

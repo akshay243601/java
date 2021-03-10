@@ -26,7 +26,7 @@ public class CharFrequencyInSequence {
         if(null != value && !value.isEmpty()) {
             int freq = 0;
             char currCh = value.charAt(0);
-            for(int i = 0; i < value.length(); i++) {
+            for(int i = 1; i < value.length(); i++) {
                 if(Character.isDigit(value.charAt(i))) {
                     freq = freq*10 + Integer.parseInt("" + value.charAt(i));
                 } else {

@@ -11,16 +11,13 @@ public class CountNegativeIntegersInRowColumnWiseSortedMatrix {
 		int row = 0, col = colLen - 1;
 
 		while (row < rowLen && col >= 0) {
-
 			if (array[row][col] >= 0) {
 				col--;
 			} else {
 				negativeNumber = negativeNumber + col + 1;
 				row++;
 			}
-
 		}
-
 		return negativeNumber;
 	}
 
