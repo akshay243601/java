@@ -21,7 +21,6 @@ public class AllPermutationOfString {
 		chArr[i] = chArr[j];
 		chArr[j] = temp;
 		return String.valueOf(chArr);
-
 	}
 
 	public static void main(String[] args) {
