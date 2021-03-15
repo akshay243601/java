@@ -231,7 +231,7 @@ public class NumberToWordConvert {
 
 
         System.out.println(numberToWordConvert.numberToWords(834784));
-        System.out.println(numberToWordConvert.numberToWordsGOODAPPROACH(834784));
+        System.out.println(numberToWordConvert.numberToWordsGOODAPPROACH(20));
 
     }
 

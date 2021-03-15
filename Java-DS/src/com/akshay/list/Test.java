@@ -12,8 +12,6 @@ public class Test implements Comparator<Test> {
         System.out.print(index + " " );
         index = Arrays.binarySearch(va, new Test(80), va[0]);
         System.out.print(index);
-
-
     }
 
     public Test(int d) {

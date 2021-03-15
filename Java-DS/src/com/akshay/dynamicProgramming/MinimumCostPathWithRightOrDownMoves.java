@@ -9,23 +9,28 @@ public class MinimumCostPathWithRightOrDownMoves {
         }else if(m == 0 && n == 0) {
             return matrix[m][n];
         } else
-            return matrix[m][n] + Math.min(Math.min(
-                    minCostPath(matrix, m, n-1),
-                    minCostPath(matrix, m-1, n)),
-                    minCostPath(matrix, m-1, n-1));
+            return matrix[m][n] +
+                    Math.min(Math.min(
+                        minCostPath(matrix, m, n-1),
+                        minCostPath(matrix, m-1, n)),
+                        minCostPath(matrix, m-1, n-1)
+                    );
     }
 
 
     // Approach 2 : Dynamic Programming Approach
-    private static int minCostPathViaDP(int[][] matrix, int m, int n) {
-        int[][] dp = new int[m+1][n+1];
+    private static int minCostPathViaDP(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[][] dp = new int[m][n];
 
         //First Row will be filled with first row previous element + cost at current
         //First columns will be filled with first column previous element + cost at current
         // Cost at current Node + Minimum cost of all three from DP
 
-        for (int i = 0; i < m+1; i++) {
-            for (int j = 0; j < n+1; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if(i == 0 && j == 0) {
                     dp[0][0] = matrix[i][j];
                 }else if(i == 0) {
@@ -37,7 +42,7 @@ public class MinimumCostPathWithRightOrDownMoves {
                 }
             }
         }
-        return dp[m][n];
+        return dp[m-1][n-1];
     }
 
     
@@ -50,8 +55,8 @@ public class MinimumCostPathWithRightOrDownMoves {
                         {7,8,3}
                 };
 
-        System.out.println(minCostPath(matrix, 2,2));
-        System.out.println(minCostPathViaDP(matrix, 2,2));
+        System.out.println(minCostPath(matrix, 2, 2));
+        System.out.println(minCostPathViaDP(matrix));
 
     }
 }

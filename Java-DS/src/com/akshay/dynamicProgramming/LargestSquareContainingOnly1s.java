@@ -23,6 +23,8 @@ public class LargestSquareContainingOnly1s {
         int[][] dp = new int[m+1][n+1];
         int ans = 0;
 
+
+        // 1st Rows will be all 0 in dp and 1 column will be also 0 thats why we have started i and j from 1, (not from 0)
         for(int i = 1; i <= m; i++) {
             for(int j = 1; j <= n; j++) {
                 if(matrix[i-1][j-1] == '1') {

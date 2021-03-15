@@ -2,6 +2,15 @@ package com.akshay.string;
 
 public class AllPermutationOfString {
 
+	/*
+	* n-> Size of String
+	*
+	* Time Complexity = time to calculate one permutation * total number of permutation
+	* Time Complexity = n            *            !n (factorial n)
+	* Time Complexity : O(n * !n)
+	* */
+
+
 	public static void permutate(String val, int l, int r) {
 		if (l == r) {
 			System.out.print(val + " ");
