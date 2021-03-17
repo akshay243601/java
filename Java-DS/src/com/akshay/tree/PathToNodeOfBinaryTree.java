@@ -10,17 +10,15 @@ public class PathToNodeOfBinaryTree {
 	static int pathLength = 0;
 
 	private static boolean getPath(TreeNode node, int nodeValue) {
-
 		if (node == null) {
 			return false;
 		}
-
+		path.add(node.data);
 		if (node.data == nodeValue || getPath(node.left, nodeValue) || getPath(node.right, nodeValue)) {
-			path.add(node.data);
 			pathLength++;
 			return true;
 		}
-
+		path.remove(path.size() - 1);
 		return false;
 	}
 
@@ -38,12 +36,23 @@ public class PathToNodeOfBinaryTree {
 
 		
 		getPath(root, 10);
-		Collections.reverse(path);
+//		Collections.reverse(path);
 		for (int pathVal : path) {
 			System.out.print(pathVal + " ");
 		}
 
 		System.out.println("Path Length : " + pathLength);
+
+
+		path.clear();
+		getPath(root, 7);
+//		Collections.reverse(path);
+		for (int pathVal : path) {
+			System.out.print(pathVal + " ");
+		}
+
+		System.out.println("Path Length : " + pathLength);
+
 	}
 
 }

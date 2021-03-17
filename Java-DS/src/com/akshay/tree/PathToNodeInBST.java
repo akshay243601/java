@@ -5,7 +5,6 @@ public class PathToNodeInBST {
 	static String path = "";
 	static TreeNode root1 = null;
 	static boolean isPath = false;
-
 	private static void pathToNode(TreeNode node, int nodeValue) {
 
 		if (node != null) {
@@ -22,7 +21,6 @@ public class PathToNodeInBST {
 			} else {
 				pathToNode(node.right, nodeValue);
 			}
-
 		}
 	}
 
@@ -44,32 +42,32 @@ public class PathToNodeInBST {
 		isPath = false;
 		pathToNode(root, 5);
 		System.out.println(path);
-		
+
 		path = "";
 		isPath = false;
 		pathToNode(root, 8);
 		System.out.println(path);
-		
+
 		path = "";
 		isPath = false;
 		pathToNode(root, 2);
 		System.out.println(path);
-		
+
 		path = "";
 		isPath = false;
 		pathToNode(root, 6);
 		System.out.println(path);
-		
+
 		path = "";
 		isPath = false;
 		pathToNode(root, 4);
 		System.out.println(path);
-		
+
 		path = "";
 		isPath = false;
 		pathToNode(root, 9);
 		System.out.println(path);
-		
+
 		path = "";
 		isPath = false;
 		pathToNode(root, 19);

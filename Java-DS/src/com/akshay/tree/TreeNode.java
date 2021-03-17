@@ -8,4 +8,13 @@ public class TreeNode {
 		this.data = data;
 		left = right = null;
 	}
+
+	@Override
+	public String toString() {
+		return "TreeNode{" +
+				"left=" + left +
+				", right=" + right +
+				", data=" + data +
+				'}';
+	}
 }
