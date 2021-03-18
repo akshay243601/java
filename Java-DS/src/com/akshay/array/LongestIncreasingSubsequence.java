@@ -2,29 +2,35 @@ package com.akshay.array;
 
 public class LongestIncreasingSubsequence {
 
-//https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
-    //WRONG
-    //APProach 1
-    private static int longestIncreasingSubsequenceLength(int[] a) {
-        int maxLength = 0;
-        for(int i = 0; i < a.length - 1; i++) {
-            int max = a[i];
-            int tempLen = 1;
-            for(int j = i + 1; j < a.length; j++) {
-                if(a[j] > max) {
-                    max = a[j];
-                    tempLen++;
+
+    // Complexity :
+    // Time : O(n*n)
+    //Space : O(n)  : A new array we are using
+    //https://leetcode.com/problems/longest-increasing-subsequence/submissions/
+    private static int longestIncreasingSubsequenceLength(int[] nums) {
+        int lis[] = new int[nums.length];
+
+        // Initially everything should be 1
+        for(int i = 0; i < nums.length; i++) {
+            lis[i] = 1;
+        }
+
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = 0; j < i; j++) {
+                // Check all the element previous to current element should be less, then increase the lis
+                if(nums[i] > nums[j] && lis[i] < lis[j] + 1) {
+                    lis[i] = lis[j] + 1;
                 }
-                if(i + maxLength > a.length ) {
-                    return maxLength;
-                }
-            }
-            if(maxLength < tempLen) {
-                maxLength = tempLen;
-                return maxLength;
             }
         }
-        return maxLength;
+
+        int max = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(max < lis[i]) {
+                max = lis[i];
+            }
+        }
+        return max;
     }
 
 

@@ -2,7 +2,9 @@ package com.akshay.array;
 
 import java.util.Arrays;
 
-
+/** Google Interview Question
+ * https://leetcode.com/discuss/interview-question/241808/Google-Two-sum-closest
+ * ****/
 public class FindClosestPairInTwoArrayEqualToATarget {
 
     public static int[] findClosestPair(int[] arr, int targetSum) {
@@ -37,10 +39,14 @@ public class FindClosestPairInTwoArrayEqualToATarget {
     }
 
     public static void main(String[] args) {
-        int[] arr = {5, 3, 12, 9};
+        int[] arr = new int[]{5, 3, 12, 9};
         int[] pair = findClosestPair(arr, 8);
         System.out.println(pair[0] + " , " + pair[1]);
+
+        arr = new int[]{-1, 2, 1, -4};
+        pair = findClosestPair(arr, 4);
+        System.out.println(pair[0] + " , " + pair[1]);
+
+
     }
-
-
 }
