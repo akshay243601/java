@@ -4,12 +4,12 @@ package com.akshay.graph.airportConnection;
 import java.util.*;
 
 /**
- *
+ * Airport Connections - Extremely Hard 2
+ * Nice Explanation
  * https://drive.google.com/drive/u/0/folders/1-c-B5PjZkrEjl-9TNx5tFnP72L_rScSL
  *
  * https://github.com/bluepsyduck93/Coding-Problems/wiki/Algo-Expert-Extremely-Hard-2
  *
- *Airport Connections - Extremely Hard 2
  * You are given a list of airports (three-letter codes like 'JFK'), a list of routes (one-way flights from one airport to another like ['JFK', 'SFO']), and a starting airport.
  *
  * Write a function that returns the minimum number of airport connections (one-way flights) that need to be added in order for someone to be able to reach any airport in the list, starting at the starting airport.
@@ -71,6 +71,17 @@ import java.util.*;
  * **/
 public class AirportConnectionGraphDemo {
 
+
+    /***
+     * Steps to find out the Minimum connections required to reach each airport from starting point
+     *
+     * 1. Create Airport Graph from Airport List and Routes
+     * 2. Get List of Visited Nodes (Reachable Airports) using dfs
+     * 3. Prepare list of non-reachable Airport
+     * 4. Prepare unreachableAirportConnection from unreachableAirport using again DFS
+     * 5. Prepare count for unreachableAirport  by sorting them in Descending order based on number of unreachable connection
+     *
+     * *****/
     private static int airportConnections(List<String> airports, List<String[]> routes, String startedPoint) {
         HashMap<String, AirportNode> airportGraph = createAirportGraph(airports, routes);
         List<AirportNode> unreachableAirportNodes = getUnreachableAirportNodes(airportGraph, airports, startedPoint);
@@ -91,9 +102,14 @@ public class AirportConnectionGraphDemo {
         return airportGraph;
     }
 
+    // Get List of Unreachable Nodes.
     private static List<AirportNode> getUnreachableAirportNodes(HashMap<String, AirportNode> airportGraph, List<String> airports, String startedPoint) {
+
+        // Prepare List of Reachable Nodes
         Set<String> visitedAirport = new HashSet<>();
         depthFirstTraverseAirports(airportGraph, startedPoint, visitedAirport);
+
+        //Prepare List of UnReachable Nodes
         List<AirportNode> unreachableAirportNodes = new ArrayList<>();
         for(String airport : airports) {
             if(visitedAirport.contains(airport)) {
@@ -131,16 +147,17 @@ public class AirportConnectionGraphDemo {
     }
 
     private static void depthFirstAddUnreachableConnection(HashMap<String, AirportNode> airportGraph, List<String> unreachableConnections, String airport, Set<String> visitedAirports) {
-        if(airportGraph.get(airport).isReachable) {
+        if(visitedAirports.contains(airport)) {
             return;
         }
 
-        if(visitedAirports.contains(airport)) {
+        if(airportGraph.get(airport).isReachable) {
             return;
         }
 
         visitedAirports.add(airport);
         unreachableConnections.add(airport);
+
         for(String connectedAirport : airportGraph.get(airport).connections) {
             depthFirstAddUnreachableConnection(airportGraph, unreachableConnections, connectedAirport, visitedAirports);
         }
