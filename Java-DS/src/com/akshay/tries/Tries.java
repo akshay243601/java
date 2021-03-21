@@ -3,10 +3,11 @@ package com.akshay.tries;
 import java.util.HashMap;
 
 public class Tries {
+
+    private Character ch;
+    private HashMap<Character, Tries> children;
     private String word;
     private boolean isEndOfWord;
-    private HashMap<Character, Tries> children;
-    private Character ch;
 
     public Tries() {
         this.children = new HashMap<>();

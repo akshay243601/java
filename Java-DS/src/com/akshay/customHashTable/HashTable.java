@@ -9,7 +9,7 @@ public class HashTable<K, V> {
     int size;
 
     public HashTable() {
-        this.bucketArray = new ArrayList<HashNode<K, V>>();
+        this.bucketArray = new ArrayList<>();
         this.bucketSize = 16;
         for(int i = 0; i < this.bucketSize; i++) {
             this.bucketArray.add(null);

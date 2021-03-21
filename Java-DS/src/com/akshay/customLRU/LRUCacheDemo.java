@@ -15,6 +15,7 @@ public class LRUCacheDemo {
 
         lruCache.put("4", "A4");
         lruCache.print();
+
         lruCache.put("5", "A5");
         lruCache.print();
 

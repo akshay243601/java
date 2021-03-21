@@ -1,7 +1,15 @@
 package com.akshay.tries;
 
 import java.util.HashMap;
-//https://www.geeksforgeeks.org/longest-prefix-matching-a-trie-based-solution-in-java/
+
+/****
+ *
+ * Given a dictionary of words and an input string,
+ * find the longest prefix of the string which is also a word in dictionary.
+ *
+ * https://www.geeksforgeeks.org/longest-prefix-matching-a-trie-based-solution-in-java/
+ *
+ * ***/
 public class LongestPrefix {
 
     Tries root;
@@ -31,23 +39,16 @@ public class LongestPrefix {
         if(input != null && input.length() > 0) {
             Tries curr = root;
             int index = 0;
-            String prevMatch = null;
             for (char ch : input.toCharArray()) {
                 HashMap<Character, Tries> currChildren = curr.getChildren();
                 if(currChildren.containsKey(ch)) {
                     curr = currChildren.get(ch);
                     index++;
-//                    if(curr.isEndOfWord()) {
-//                        prevMatch = curr.getWord();
-//                    }
                 } else {
                     break;
                 }
             }
-//            if(!curr.isEndOfWord()) {
-//                return prevMatch;
-//            } else
-                return input.substring(0, index + 1);
+            return input.substring(0, index);
         }
         return "";
     }
@@ -55,13 +56,11 @@ public class LongestPrefix {
     public String getLongestPrefixWord(String input) {
         if(input != null && input.length() > 0) {
             Tries curr = root;
-            int index = 0;
             String prevMatch = null;
             for (char ch : input.toCharArray()) {
                 HashMap<Character, Tries> currChildren = curr.getChildren();
                 if(currChildren.containsKey(ch)) {
                     curr = currChildren.get(ch);
-                    //index++;
                     if(curr.isEndOfWord()) {
                         prevMatch = curr.getWord();
                     }
@@ -83,11 +82,13 @@ public class LongestPrefix {
         longestPrefix.insert("RAM");
         longestPrefix.insert("RAMANDER");
         longestPrefix.insert("RAMESHAWER");
+        longestPrefix.insert("RAMESEAWER");
         longestPrefix.insert("RAMA");
 
 
         System.out.println(longestPrefix.getLongestPrefix("RAMESEUIE"));
-        System.out.println(longestPrefix.getLongestPrefixWord("RAMESEUIE"));
+        System.out.println(longestPrefix.getLongestPrefix("TTTT"));
+        System.out.println(longestPrefix.getLongestPrefixWord("RAMASEUIE"));
 
     }
 }
