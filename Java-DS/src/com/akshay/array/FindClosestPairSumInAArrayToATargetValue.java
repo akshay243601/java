@@ -2,7 +2,7 @@ package com.akshay.array;
 
 import java.util.Arrays;
 
-public class FindClosestPairSunInAArrayToATargetValue {
+public class FindClosestPairSumInAArrayToATargetValue {
 
     public static int[] findClosestPair(int[] arr1, int[] arr2) {
         int[] pair = new int[2];
