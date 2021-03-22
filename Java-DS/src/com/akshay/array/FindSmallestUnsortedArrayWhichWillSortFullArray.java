@@ -40,7 +40,6 @@ public class FindSmallestUnsortedArrayWhichWillSortFullArray {
 
 		for (int i = 0; i < startIndex; i++) {
 			if (min < a[i]) {
-				//min = a[i];
 				minIndex = i;
 				break;
 			}
@@ -48,7 +47,6 @@ public class FindSmallestUnsortedArrayWhichWillSortFullArray {
 
 		for (int i = a.length-1; i >= endIndex; i--) {
 			if (max > a[i]) {
-				//max = a[i];
 				maxIndex = i;
 				break;
 			}
@@ -57,7 +55,6 @@ public class FindSmallestUnsortedArrayWhichWillSortFullArray {
 		for (int i = minIndex; i <= maxIndex; i++) {
 			System.out.print(a[i] + " ");
 		}
-
 	}
 
 	public static void main(String args[]) {
