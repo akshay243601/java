@@ -37,6 +37,8 @@ import java.util.Queue;
 public class JumpGame3_IfCanReachToZeroFromAnyIndex {
 
     // Approach# 1 Recursive
+    // T = O(2^n)
+    // Space : O(n)
     public boolean canReachUsingRecursive(int[] arr, int start) {
         return canReachUsingRecursiveHelper(arr, start);
     }
