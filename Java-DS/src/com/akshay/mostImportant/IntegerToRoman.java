@@ -87,9 +87,9 @@ class IntegerToRoman {
     //#Approach 2 : Best Approach
     private static String intToRomanWithoutRecurssion(int num) {
         String result = "";
-        int[] values = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-        String[] romanValues = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
-        for(int i = values.length-1; i >= 0; i--) {
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romanValues = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        for(int i = 0; i < values.length; i++) {
             while (num >= values[i]) {  // if there are 2989 -> for 2000 -> 1000, 1000 [two time for 1000 etc]
                 result = result + romanValues[i];
                 num = num - values[i];   // decreasing the value
@@ -101,6 +101,11 @@ class IntegerToRoman {
     public static void main(String[] args) {
         System.out.println(intToRoman(2878));
         System.out.println(intToRomanWithoutRecurssion(2878));
+
+        System.out.println(intToRoman(2844));
+        System.out.println(intToRomanWithoutRecurssion(2844));
+
+
     }
 
 }
