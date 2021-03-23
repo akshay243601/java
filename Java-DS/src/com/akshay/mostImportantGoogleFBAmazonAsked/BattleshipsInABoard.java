@@ -51,6 +51,36 @@ public class BattleshipsInABoard {
         }
         return battleshipCount;
     }
+
+    public static int countBattleshipsUsingRecursiveCall(char[][] board) {
+        int battleshipCount = 0;
+
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board[0].length; j++) {
+                if(board[i][j] == 'X') {
+                    battleshipCount++;
+                    countBattleshipsUsingRecursiveCall(board, i, j);
+                }
+            }
+        }
+
+        return battleshipCount;
+    }
+
+    public static void countBattleshipsUsingRecursiveCall(char[][] board, int i, int j) {
+        if(i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != 'X') {
+            return;
+        }
+
+        // Here are we are updating the value to '#' it will not be count the battleship again in calling function : countBattleshipsUsingRecursiveCall
+        board[i][j] = '#';
+
+        countBattleshipsUsingRecursiveCall(board, i + 1, j);
+        countBattleshipsUsingRecursiveCall(board, i - 1, j);
+        countBattleshipsUsingRecursiveCall(board, i, j + 1);
+        countBattleshipsUsingRecursiveCall(board, i, j - 1);
+    }
+
     public static void main(String[] args) {
         char[][] board = new char[][]
                 {
@@ -60,6 +90,7 @@ public class BattleshipsInABoard {
                 };
 
         System.out.println(countBattleships(board)); //2
+        System.out.println(countBattleshipsUsingRecursiveCall(board)); //2
 
 
         board = new char[][]
@@ -69,6 +100,7 @@ public class BattleshipsInABoard {
                         {'.','X','.', 'X'}
                 };
         System.out.println(countBattleships(board)); // 3
+        System.out.println(countBattleshipsUsingRecursiveCall(board)); //3
 
 
         board = new char[][]
@@ -76,6 +108,7 @@ public class BattleshipsInABoard {
                         {'X','X','.','X','X'}
                 };
         System.out.println(countBattleships(board)); // 2
+        System.out.println(countBattleshipsUsingRecursiveCall(board)); //2
 
     }
 }
