@@ -1,4 +1,4 @@
-package com.akshay.mostImportantGoogleFBAmazonAsked;
+package com.akshay.leetcode.mostImportantGoogleFBAmazonAsked;
 
 import java.util.HashSet;
 import java.util.Set;

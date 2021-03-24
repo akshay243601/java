@@ -1,4 +1,4 @@
-package com.akshay.array;
+package com.akshay.leetcode;
 
 /*
 https://leetcode.com/problems/get-equal-substrings-within-budget/
