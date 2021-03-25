@@ -46,6 +46,8 @@ public class BattleshipsInABoard {
                 if(j > 0 && board[i][j-1] == 'X') {
                     continue;
                 }
+
+                //If all the above conditions false that mean it has 'X' (battleship)
                 battleshipCount++;
             }
         }

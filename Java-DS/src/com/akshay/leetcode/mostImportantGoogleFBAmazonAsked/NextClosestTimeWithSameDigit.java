@@ -79,7 +79,5 @@ public class NextClosestTimeWithSameDigit {
         System.out.println(getNextClosestTime("12:59"));
         System.out.println(getNextClosestTime("19:34"));
         System.out.println(getNextClosestTime("23:59"));
-
     }
-
 }
