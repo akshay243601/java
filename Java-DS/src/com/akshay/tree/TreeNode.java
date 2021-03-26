@@ -1,8 +1,8 @@
 package com.akshay.tree;
 
 public class TreeNode {
-	TreeNode left, right;
-	int data;
+	public TreeNode left, right;
+	public int data;
 
 	public TreeNode(int data) {
 		this.data = data;
