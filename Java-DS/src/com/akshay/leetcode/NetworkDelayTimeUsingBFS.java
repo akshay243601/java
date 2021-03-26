@@ -92,7 +92,6 @@ public class NetworkDelayTimeUsingBFS {
         System.out.println(networkDelayTime(fromToArray, numberOfVertexes, startedPoint));
 
 
-
         fromToArray = new int[][]
                 {
                         {1, 2, 1}
