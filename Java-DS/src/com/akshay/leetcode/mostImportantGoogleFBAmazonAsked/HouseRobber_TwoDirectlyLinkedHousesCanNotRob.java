@@ -25,8 +25,10 @@ public class HouseRobber_TwoDirectlyLinkedHousesCanNotRob {
         if(root.right != null) {
             val += rob(root.right.left) + rob(root.right.right);
         }
-        cache.put(root, Math.max(root.data + val, rob(root.left) + rob(root.right)));
-        return cache.get(root);
+
+        int result = Math.max(root.data + val, rob(root.left) + rob(root.right));
+        cache.put(root, result);
+        return result;
     }
 
 
