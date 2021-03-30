@@ -39,7 +39,7 @@ import java.util.List;
  * All the strings of wordDict are unique.
  *
  * ******/
-public class WordBreak2_SonstructASentenceWithWordsWithSpace {
+public class WordBreak2_ConstructASentenceWithWordsWithSpace {
 
     /*
     * Explanation

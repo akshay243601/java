@@ -1,4 +1,4 @@
-package com.akshay.snakeLadder;
+package com.akshay.leetcode.snakeLadder;
 
 import java.util.LinkedList;
 import java.util.Queue;
