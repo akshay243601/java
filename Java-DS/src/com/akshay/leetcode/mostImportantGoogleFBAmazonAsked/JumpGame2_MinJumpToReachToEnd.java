@@ -29,6 +29,78 @@ import java.util.Arrays;
  */
 public class JumpGame2_MinJumpToReachToEnd {
 
+    /***
+     * https://www.youtube.com/watch?v=Gg64QXc9K0s
+     * ===============================================================================
+     *  NOTE : WE HAVE SEEN MANY PROBLEMS WHICH CAN BE SOLVED USING SAME SOLUTION
+     * ===============================================================================
+     * 1. Leet Code : 55 | Jump Game  : https://leetcode.com/problems/jump-game/
+     * 2. Leet Code : 45 | Jump Game 2 : https://leetcode.com/problems/jump-game-ii/
+     * 3. Leet Code : 1326 | Minimum Number of Taps to Open to Water a Garden : https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
+     * 4. Leet Code : 1024 | Video Stitching : https://leetcode.com/problems/video-stitching/
+     *
+     * All These Question are same Only 1 change required i.e. Start Index and End Index calculation
+     * Else 95% code is same.
+     * **/
+    //Time Complexity : O(n)
+    public int jumpWithMinMaxApproach(int[] jumps) {
+        int min = 0;
+        int max = 0;
+        int jump = 0;
+        int n = jumps.length-1;
+        int index = 0;
+        while(max < n) {
+            // No need to start again from 0 so we can have index and no need to start again from 0 in for loop.
+            for(int i = index; i < jumps.length; i++) {
+                int start = i;
+                int end = i + jumps[i];
+
+                if(start > min) {
+                    break;
+                }
+
+                if(start <= min && end > max) {
+                    max = end;
+                    index = i; // No need to start again from 0 so we can have index and no need to start again from 0 in for loop.
+                }
+            }
+            if(min == max) {
+                return -1;
+            }
+            min = max;
+            jump++;
+        }
+        return jump;
+    }
+
+    //Time Complexity : O(n*n)
+    public int jumpWithMinMaxApproach1(int[] jumps) {
+        int min = 0;
+        int max = 0;
+        int jump = 0;
+        int n = jumps.length-1;
+        int index = 0;
+        while(max < n) {
+            // No need to start again from 0 so we can have index and no need to start again from 0 in for loop.
+            for(int i = index; i < jumps.length; i++) {
+                int start = i;
+                int end = i + jumps[i];
+
+                if(start <= min && end > max) {
+                    max = end;
+                    index = i; // No need to start again from 0 so we can have index and no need to start again from 0 in for loop.
+                }
+            }
+            if(min == max) {
+                return -1;
+            }
+            min = max;
+            jump++;
+        }
+        return jump;
+    }
+
+
     // Approach 1 : Best
     // Time Complexity : O(n)
     // Space Complexity : O(1)
@@ -69,8 +141,7 @@ public class JumpGame2_MinJumpToReachToEnd {
     }
 
 
-
-    // Approach # 2
+    // Approach # 3
     // Time Complexity : O(n*n)
     // Space Complexity : O(n)
     public int jumpWithComparingWithItsPreviousJumpsUsingDP(int[] nums) {
@@ -92,19 +163,23 @@ public class JumpGame2_MinJumpToReachToEnd {
         return jumps[nums.length - 1];
     }
 
+
     public static void main(String[] args) {
         JumpGame2_MinJumpToReachToEnd _instance = new JumpGame2_MinJumpToReachToEnd();
         int[] arr =  new int[]{2,3,1,1,4};
         System.out.println(_instance.jump(arr));
+        System.out.println(_instance.jumpWithMinMaxApproach(arr));
         System.out.println(_instance.jumpWithComparingWithItsPreviousJumpsUsingDP(arr));
 
 
         arr =  new int[]{2,3,0,1,4};
         System.out.println(_instance.jump(arr));
+        System.out.println(_instance.jumpWithMinMaxApproach(arr));
         System.out.println(_instance.jumpWithComparingWithItsPreviousJumpsUsingDP(arr));
 
         arr =  new int[]{3,2,1,0,4};
         System.out.println(_instance.jump(arr));
+        System.out.println(_instance.jumpWithMinMaxApproach(arr));
         System.out.println(_instance.jumpWithComparingWithItsPreviousJumpsUsingDP(arr));
 
     }

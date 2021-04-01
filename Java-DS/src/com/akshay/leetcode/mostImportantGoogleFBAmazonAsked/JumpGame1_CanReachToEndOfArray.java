@@ -24,6 +24,74 @@ package com.akshay.leetcode.mostImportantGoogleFBAmazonAsked;
 
 public class JumpGame1_CanReachToEndOfArray {
 
+    //https://www.youtube.com/watch?v=Gg64QXc9K0s
+    /***
+     * ===============================================================================
+     *  NOTE : WE HAVE SEEN MANY PROBLEMS WHICH CAN BE SOLVED USING SAME SOLUTION
+     * ===============================================================================
+     * 1. Leet Code : 55 | Jump Game  : https://leetcode.com/problems/jump-game/
+     * 2. Leet Code : 45 | Jump Game 2 : https://leetcode.com/problems/jump-game-ii/
+     * 3. Leet Code : 1326 | Minimum Number of Taps to Open to Water a Garden : https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
+     * 4. Leet Code : 1024 | Video Stitching : https://leetcode.com/problems/video-stitching/
+     *
+     * All These Question are same Only 1 change required i.e. Start Index and End Index calculation
+     * Else 95% code is same.
+     * **/
+    //Time Complexity : O(n)
+    public boolean canJumpUsingMinMax(int[] jumps) {
+        int min = 0;
+        int max = 0;
+        int n = jumps.length-1;
+        int index = 0;
+        while(max < n) {
+            for(int i = index; i < jumps.length; i++) {
+                int start = i;
+                int end = i + jumps[i];
+
+
+                if(start > min) {
+                    break;
+                }
+
+                if(start <= min && end > max) {
+                    max = end;
+                    index = i;
+                }
+            }
+            if(min == max) {
+                return false;
+            }
+            min = max;
+        }
+        return true;
+    }
+
+
+    public boolean canJumpUsingMinMax1(int[] jumps) {
+        int min = 0;
+        int max = 0;
+        int n = jumps.length-1;
+        int index = 0;
+        while(max < n) {
+            for(int i = index; i < jumps.length; i++) {
+                int start = i;
+                int end = i + jumps[i];
+
+                if(start <= min && end > max) {
+                    max = end;
+                    index = i;
+                }
+            }
+            if(min == max) {
+                return false;
+            }
+            min = max;
+        }
+        return true;
+    }
+
+
+
     // Time Complexity : O(n)
     public boolean canJumpToEnd(int[] nums) {
         int reachable = nums[0];
@@ -44,6 +112,7 @@ public class JumpGame1_CanReachToEndOfArray {
         }
         return true;
     }
+
 
     public static void main(String[] args) {
         JumpGame1_CanReachToEndOfArray _instance = new JumpGame1_CanReachToEndOfArray();

@@ -9,18 +9,27 @@ public class PathToNodeOfBinaryTree {
 	static List<Integer> path = new ArrayList<>();
 	static int pathLength = 0;
 
+
 	private static boolean getPath(TreeNode node, int nodeValue) {
+		path = new ArrayList<>();
+		return getPathHelper(node, nodeValue);
+	}
+
+	private static boolean getPathHelper(TreeNode node, int nodeValue) {
 		if (node == null) {
 			return false;
 		}
-		path.add(node.data);
-		if (node.data == nodeValue || getPath(node.left, nodeValue) || getPath(node.right, nodeValue)) {
+		if (node.data == nodeValue || getPathHelper(node.left, nodeValue) || getPathHelper(node.right, nodeValue)) {
+			path.add(node.data);
 			pathLength++;
 			return true;
 		}
-		path.remove(path.size() - 1);
+		//path.remove(path.size() - 1);
 		return false;
 	}
+
+
+
 
 	public static void main(String[] args) {
 
@@ -34,9 +43,8 @@ public class PathToNodeOfBinaryTree {
 		root.left.right.left = new TreeNode(7);
 		root.left.right.right = new TreeNode(9);
 
-		
+
 		getPath(root, 10);
-//		Collections.reverse(path);
 		for (int pathVal : path) {
 			System.out.print(pathVal + " ");
 		}
@@ -44,13 +52,10 @@ public class PathToNodeOfBinaryTree {
 		System.out.println("Path Length : " + pathLength);
 
 
-		path.clear();
 		getPath(root, 7);
-//		Collections.reverse(path);
 		for (int pathVal : path) {
 			System.out.print(pathVal + " ");
 		}
-
 		System.out.println("Path Length : " + pathLength);
 
 	}
