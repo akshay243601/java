@@ -36,7 +36,7 @@ import java.util.Arrays;
  * Output: 2
  *
  * ***/
-public class MinimumCoinsToMakeAGivenAmount {
+public class Knapsack_CoinChange_ToMakeAGivenAmount {
 
     //Best Solution
     public static int coinChange(int[] coins, int amount) {
