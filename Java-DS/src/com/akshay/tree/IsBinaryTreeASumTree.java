@@ -11,24 +11,24 @@ public class IsBinaryTreeASumTree {
 		root.left.right = new TreeNode(6);
 		root.right.right = new TreeNode(3);
 
-		if (isSumTree(root) != 0)
+		if (isSumTree(root))
 			System.out.println("The given tree is a sum tree");
 		else
 			System.out.println("The given tree is not a sum tree");
 	}
 
-	private static int isSumTree(TreeNode node) {
+	private static boolean isSumTree(TreeNode node) {
 		if (node == null || (node.left == null && node.right == null)) {
-			return 1;
+			return true;
 		}
 
 		int lb = sum(node.left);
 		int rb = sum(node.right);
 
-		if (lb + rb == node.data && isSumTree(node.left) != 0 && isSumTree(node.right) != 0) {
-			return 1;
+		if (lb + rb == node.data && isSumTree(node.left) && isSumTree(node.right)) {
+			return true;
 		}
-		return 0;
+		return false;
 	}
 
 	private static int sum(TreeNode node) {

@@ -1,6 +1,8 @@
 package com.akshay.leetcode.mostImportantGoogleFBAmazonAsked;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -52,15 +54,21 @@ import java.util.PriorityQueue;
  *
  *
  * ****/
+
+/****
+ *
+ * Time Complexity : O(n*log(k))   k = number of rows, n = max number of element in a row
+ *
+ *
+ * ****/
 public class SmallestRangeCoveringElementsFrom_KLists__GOOGLE_AMAZON {
     public int[] smallestRange(List<List<Integer>> nums) {
         int minX = 0;
         int minY = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-        int k = nums.size();
         int[] next = new int[nums.size()];
         PriorityQueue<Integer> minQueue = new PriorityQueue<Integer>((i, j) -> nums.get(i).get(next[i]) -  nums.get(j).get(next[j]));
-        for(int i = 0; i < k; i++) {
+        for(int i = 0; i < nums.size(); i++) {
             minQueue.add(i);
             max = Math.max(max, nums.get(i).get(0));
         }
@@ -140,5 +148,17 @@ public class SmallestRangeCoveringElementsFrom_KLists__GOOGLE_AMAZON {
             }
         }
         return new int[] {finalMin, finalMax};
+    }
+
+
+    public static void main(String[] args) {
+        List<List<Integer>> matrix = new ArrayList<>();
+        matrix.add(Arrays.asList(4,10,15,24,26));
+        matrix.add(Arrays.asList(0,9,12,20));
+        matrix.add(Arrays.asList(5,18,22,30));
+
+        SmallestRangeCoveringElementsFrom_KLists__GOOGLE_AMAZON _instance = new SmallestRangeCoveringElementsFrom_KLists__GOOGLE_AMAZON();
+        int[] response = _instance.smallestRange(matrix);
+        System.out.println(response[0] + " " + response[1]);
     }
 }
