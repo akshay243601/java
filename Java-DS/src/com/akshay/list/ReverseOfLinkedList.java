@@ -13,21 +13,20 @@ class LinkedList8 {
 	}
 
 	public Node reverseOfLinkedListItems() {
-		LinkedList8 reversedLinkedList = new LinkedList8();
-
-		reversedLinkedList.head = null;
-
+		//New Dummy Node for reversing the list
+		Node dummyNode = null;
 		Node node = head;
 		while (node != null) {
 
+			// Logic : Add value to head again and again.
 			Node newNode = new Node(node.data);
-			newNode.next = reversedLinkedList.head;
-			reversedLinkedList.head = newNode;
+			newNode.next = dummyNode;
+			dummyNode = newNode;
 
 			node = node.next;
 		}
 
-		head = reversedLinkedList.head;
+		head = dummyNode;
 		return head;
 	}
 
@@ -49,11 +48,11 @@ class LinkedList8 {
 public class ReverseOfLinkedList {
 	public static void main(String[] args) {
 		LinkedList8 list = new LinkedList8();
-		list.push(3);
+		list.push(1);
 		list.push(2);
-		list.push(12);
-		list.push(25);
-		list.push(7);
+		list.push(3);
+		list.push(4);
+		list.push(5);
 		list.printList();
 		System.out.println();
 		System.out.println("Linked List ");
