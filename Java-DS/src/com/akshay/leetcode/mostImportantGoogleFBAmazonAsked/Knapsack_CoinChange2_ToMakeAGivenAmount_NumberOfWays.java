@@ -38,10 +38,10 @@ public class Knapsack_CoinChange2_ToMakeAGivenAmount_NumberOfWays {
 
   public int change(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
-        dp[0] = 1;   // Only this is change else code is amost same as change coin
+        dp[0] = 1;   // Only this is change else code is almost same as change coin
         for(int coin : coins) {
             for(int i = coin; i < amount+1; i++) {
-                dp[i] = dp[i] + dp[i-coin];  // Only this is change else code is amost same as change coin
+                dp[i] = dp[i] + dp[i-coin];  // Only this is change else code is almost same as change coin
             }
         }
         return dp[amount];

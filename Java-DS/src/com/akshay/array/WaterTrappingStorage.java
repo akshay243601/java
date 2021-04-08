@@ -32,6 +32,7 @@ public class WaterTrappingStorage {
     }
 
     public static void main(String[] args) {
+        System.out.println(waterStorageCapacity(new int[]{4, 2, 3}));
         System.out.println(waterStorageCapacity(new int[]{3,5,6,7,9}));
         System.out.println(waterStorageCapacity(new int[]{15, 3,9,11,15,1}));
     }

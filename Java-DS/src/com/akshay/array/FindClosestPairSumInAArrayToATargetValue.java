@@ -9,7 +9,7 @@ public class FindClosestPairSumInAArrayToATargetValue {
         Arrays.sort(arr1);
         Arrays.sort(arr2);
         int minDiff = Integer.MAX_VALUE;
-        int tempDiff = 0;
+        int tempDiff;
         int index1 = 0;
         int index2 = 0;
         while (index1 < arr1.length && index2 < arr2.length) {

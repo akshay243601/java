@@ -7,9 +7,9 @@ public class NextGreaterArray {
     private static void printNextGreaterArray(int[] a) {
         Stack<Integer> stack = new Stack<>();
         stack.push(a[0]);
-        int j, element, next;
-        for(j = 1; j < a.length; j++) {
-            next=a[j];
+        int element, next;
+        for(int i = 1; i < a.length; i++) {
+            next=a[i];
             if(!stack.isEmpty()) {
                 element = stack.pop();
                 while(element < next) {

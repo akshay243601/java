@@ -35,12 +35,12 @@ public class Subsets {
         //add the basic one
         result.add(new ArrayList<Integer>());
 
-        permute(nums, 0, nums.length-1, result);
+        subsets(nums, 0, nums.length-1, result);
 
         return new ArrayList<List<Integer>>(result);
     }
 
-    public void permute(int[] nums, int l, int r, Set<List<Integer>> result) {
+    public void subsets(int[] nums, int l, int r, Set<List<Integer>> result) {
         if(l <= r) {
             List<Integer> ar = new ArrayList<>();
             for(int i = l; i <= r; i++) {
@@ -56,7 +56,7 @@ public class Subsets {
 
         for(int i = l; i <= r; i++) {
             swap(nums, i, l);
-            permute(nums, l+1, r, result);
+            subsets(nums, l+1, r, result);
             swap(nums, i, l);
         }
     }
@@ -66,5 +66,10 @@ public class Subsets {
         int temp = nums[l];
         nums[l] = nums[r];
         nums[r] = temp;
+    }
+
+    public static void main(String[] args) {
+        Subsets _instance = new Subsets();
+        System.out.println(_instance.subsets(new int[] {1, 2, 3}));
     }
 }
