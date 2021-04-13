@@ -1,4 +1,4 @@
-package com.akshay.systemdesign;
+package com.akshay.leetcode.mostImportantGoogleFBAmazonAsked;
 
 import java.util.HashSet;
 
@@ -34,7 +34,7 @@ import java.util.HashSet;
  * In calls to MyCalendar.book(start, end), start and end are integers in the range [0, 10^9].
  *
  * **/
-class CalenderBooking {
+public class CalenderBooking {
     class Booking {
         public int start;
         public int end;

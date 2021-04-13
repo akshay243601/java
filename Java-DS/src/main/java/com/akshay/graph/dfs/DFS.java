@@ -22,7 +22,7 @@ public class DFS {
 		}
 	}
 
-	// Its mostly simmiliar to Tree Level order treversal [If we replace stack with queue]
+	// Its mostly simillar to Tree Level order traversal [If we replace stack with queue]
 	private void dfsWithStack(Vertex rootVertex) {
 		this.stack.push(rootVertex);
 		while (!stack.isEmpty()) {
