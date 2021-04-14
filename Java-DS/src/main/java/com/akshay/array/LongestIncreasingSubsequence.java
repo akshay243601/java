@@ -9,6 +9,7 @@ public class LongestIncreasingSubsequence {
     //https://leetcode.com/problems/longest-increasing-subsequence/submissions/
     private static int longestIncreasingSubsequenceLength(int[] nums) {
         int lis[] = new int[nums.length];
+        int max = 0;
 
         // Initially everything should be 1
         for(int i = 0; i < nums.length; i++) {
@@ -24,7 +25,6 @@ public class LongestIncreasingSubsequence {
             }
         }
 
-        int max = 0;
         for(int i = 0; i < nums.length; i++) {
             if(max < lis[i]) {
                 max = lis[i];

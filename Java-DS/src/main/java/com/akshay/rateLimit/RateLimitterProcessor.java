@@ -1,17 +1,17 @@
 package com.akshay.rateLimit;
 
-import com.sun.xml.internal.ws.util.StringUtils;
 
 import java.util.*;
 
 public class RateLimitterProcessor {
     public static String APPENDER = "_";
-    public static Long MAX_EXPIRY = 1000l; //ms
+    public static Long MAX_EXPIRY = 1000l;
     Map<String, Queue<Long>> cache;
 
     public RateLimitterProcessor() {
         cache = new HashMap<>();
     }
+
     public synchronized boolean allowRequest(ApiRateConfig apiRateConfig, Long timeOfHit) throws Exception {
         String key = generateKey(apiRateConfig);
         if(cache.containsKey(key)) {
@@ -32,7 +32,6 @@ public class RateLimitterProcessor {
             return true;
         }
     }
-
 
     private String generateKey(ApiRateConfig apiRateConfig) {
         return  append(apiRateConfig.getClientId(), apiRateConfig.getIpAddress(), apiRateConfig.getUserToken(), apiRateConfig.getUrl());

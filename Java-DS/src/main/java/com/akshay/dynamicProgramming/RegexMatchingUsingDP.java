@@ -62,9 +62,9 @@ public class RegexMatchingUsingDP {
         dp[0][0] = true;
 
         //Fill First row. If "*" comes then pick "j-2"th value
-        for(int i = 1; i < dp[0].length; i++) {
-            if(pChars[i-1] == '*') {
-                dp[0][i] = dp[0][i-2];
+        for(int j = 1; j < dp[0].length; j++) {
+            if(pChars[j-1] == '*') {
+                dp[0][j] = dp[0][j-2];
             }
         }
 

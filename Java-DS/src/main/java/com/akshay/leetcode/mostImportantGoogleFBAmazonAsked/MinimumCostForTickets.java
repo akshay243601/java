@@ -114,8 +114,9 @@ public class MinimumCostForTickets {
                 //If a 30-day ticket ending on day i, dp[i] = min(dp[i - 30], dp[i - 29] ... dp[i - 1]) + cost[2]
 
                 dp[i] =
-                        Math.min(   dp[i-1] + costs[0] , Math.min(
-                                    dp[Math.max(i-7, 0)] + costs[1],   // Here i - 7 < 0 ? 0 : i-7
+
+                        Math.min(   dp[i-1] + costs[0] ,
+                        Math.min(   dp[Math.max(i-7, 0)] + costs[1],   // Here i - 7 < 0 ? 0 : i-7
                                     dp[Math.max(i-30, 0)] + costs[2]   // Here i - 30 < 0 ? 0 : i-30
                                 ));
             }

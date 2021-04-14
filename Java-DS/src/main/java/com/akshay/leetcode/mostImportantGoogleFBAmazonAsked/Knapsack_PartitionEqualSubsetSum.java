@@ -89,10 +89,8 @@ public class Knapsack_PartitionEqualSubsetSum {
         dp[0] = true;
 
         for (int num : nums) {
-            for (int i = sum; i >= 0; i--) {
-                if(i - num >= 0) {
+            for (int i = sum; i >= num; i--) {
                     dp[i] = dp[i] || dp[i-num];
-                }
             }
         }
 

@@ -10,6 +10,18 @@ public class ApiRateConfig {
     private Integer MAX_HITS=100;
 
 
+    public ApiRateConfig(String clientId, int timesOfHit) {
+        this.clientId = clientId;
+        this.timesOfHit = timesOfHit;
+    }
+
+    public ApiRateConfig(String clientId, String ipAddress, String userToken, String url, int timesOfHit) {
+        this.clientId = clientId;
+        this.timesOfHit = timesOfHit;
+        this.ipAddress = ipAddress;
+        this.userToken = userToken;
+        this.url = url;
+    }
 
     public String getClientId() {
         return clientId;
