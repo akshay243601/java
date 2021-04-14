@@ -7,7 +7,7 @@ public class ApiRateConfig {
     private String ipAddress;
     private String userToken;
     private String url;
-    private Integer MAX_HITS=100;
+    private Integer MAX_HITS=1;
 
 
     public ApiRateConfig(String clientId, int timesOfHit) {

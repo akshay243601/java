@@ -5,7 +5,7 @@ import java.util.*;
 
 public class RateLimitterProcessor {
     public static String APPENDER = "_";
-    public static Long MAX_EXPIRY = 1000l;
+    public static Long MAX_EXPIRY = 50000l;
     Map<String, Queue<Long>> cache;
 
     public RateLimitterProcessor() {
