@@ -15,15 +15,15 @@ public class JwtTokenFilter implements Filter {
                          ServletResponse response,
                          FilterChain chain) throws IOException, ServletException
     {
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse res = (HttpServletResponse) response;
-        System.out.println("Request URI is: " + req.getRequestURI());
-        String token = req.getHeader("JWT-TOKEN");
-        if(((HttpServletRequest) request).getRequestURI().contains("/notify")) {
-            //verifyJwt(token);
-        }
+//        HttpServletRequest req = (HttpServletRequest) request;
+//        HttpServletResponse res = (HttpServletResponse) response;
+//        System.out.println("Request URI is: " + req.getRequestURI());
+//        String token = req.getHeader("JWT-TOKEN");
+//        if(((HttpServletRequest) request).getRequestURI().contains("/notify")) {
+//            //verifyJwt(token);
+//        }
         chain.doFilter(request, response);
-        System.out.println("Response Status Code is: " + res.getStatus());
+       // System.out.println("Response Status Code is: " + res.getStatus());
     }
 
     public void verifyJwt(String jwtToken) {

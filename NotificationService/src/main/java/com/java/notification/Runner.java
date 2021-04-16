@@ -3,17 +3,10 @@ package com.java.notification;
 import java.util.Arrays;
 
 import com.java.notification.dao.SubscriptionDetailDao;
-import com.java.notification.model.EmailInfo;
-import com.java.notification.model.NotificationEventRequest;
-import com.java.notification.model.NotificationType;
 import com.java.notification.model.SubscriptionDetail;
-import com.java.notification.service.ProducerService;
-import com.java.notification.utils.RedisUtility;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import sun.util.resources.ga.LocaleNames_ga;
 
 @Component
 public class Runner implements CommandLineRunner {
