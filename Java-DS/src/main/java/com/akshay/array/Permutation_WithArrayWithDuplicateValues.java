@@ -47,7 +47,7 @@ public class Permutation_WithArrayWithDuplicateValues {
                 ar.add(i);
             }
 
-            //Its a set. So it will contains only on usique list of interger's list
+            //Its a set. So it will contains only on unique list of integer's list
             result.add(ar);
         }
 

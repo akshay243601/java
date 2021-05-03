@@ -1,7 +1,5 @@
 package com.akshay.list;
 
-import java.util.Arrays;
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {

@@ -37,15 +37,15 @@ package com.akshay.dynamicProgramming;
  *
  * */
 
-/****
+/**
  * ==================================================================
  * Code Is Almost Same for Largest Square vs Count of All Squares
  * ==================================================================
  * 221. Maximal Square | https://leetcode.com/problems/maximal-square/
  * 1277. Count Square Submatrices with All Ones | https://leetcode.com/problems/count-square-submatrices-with-all-ones/
  *
- * BOTH ARE SAME Except  totalSquares
- * *******/
+ * BOTH ARE SAME Except  total Squares
+ * */
 public class CountSquareSubMatricesWithAllOnes {
     public int countSquares(int[][] matrix) {
         int[][] dp = new int[matrix.length + 1][matrix[0].length + 1];

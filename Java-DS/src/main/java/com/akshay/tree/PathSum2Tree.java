@@ -36,7 +36,7 @@ public class PathSum2Tree {
         return res;
     }
 
-    public boolean hasPathSum(TreeNode root, Integer sum, List<Integer> result)       {
+    public boolean hasPathSum(TreeNode root, Integer sum, List<Integer> result) {
         return hasPathSumhelper(root, sum, 0, result);
     }
     public boolean hasPathSumhelper(TreeNode root, int target, int currSum, List<Integer> result) {
